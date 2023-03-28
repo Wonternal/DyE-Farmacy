@@ -42,27 +42,40 @@ public class Producto implements Serializable {
 	@OneToMany
 	@JoinColumn(name="id_producto", referencedColumnName="id_producto")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
+	
+	@OneToMany
+	@JoinColumn(name="id_producto", referencedColumnName="id_producto")
+	private Set<PedidoItem> pedidoItems = new HashSet<PedidoItem>();
 
 	public Producto() {
 	}
 
-	public Producto(String nombre, String descripcion, Float precio, Integer cantidad, Set<CarritoItem> carritoItems) {
+	
+
+	public Producto(String nombre, String descripcion, Float precio, Integer cantidad, Set<CarritoItem> carritoItems,
+			Set<PedidoItem> pedidoItems) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.cantidad = cantidad;
 		this.carritoItems = carritoItems;
+		this.pedidoItems = pedidoItems;
 	}
 
+
+
 	public Producto(Long id_producto, String nombre, String descripcion, Float precio, Integer cantidad,
-			Set<CarritoItem> carritoItems) {
+			Set<CarritoItem> carritoItems, Set<PedidoItem> pedidoItems) {
 		this.id_producto = id_producto;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.cantidad = cantidad;
 		this.carritoItems = carritoItems;
+		this.pedidoItems = pedidoItems;
 	}
+
+
 
 	public Long getId_producto() {
 		return id_producto;
@@ -110,6 +123,18 @@ public class Producto implements Serializable {
 
 	public void setCarritoItems(Set<CarritoItem> carritoItems) {
 		this.carritoItems = carritoItems;
+	}
+
+
+
+	public Set<PedidoItem> getPedidoItems() {
+		return pedidoItems;
+	}
+
+
+
+	public void setPedidoItems(Set<PedidoItem> pedidoItems) {
+		this.pedidoItems = pedidoItems;
 	}
 	
 	

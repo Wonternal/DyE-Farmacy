@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -46,21 +47,27 @@ public class Usuario implements Serializable {
 	
 	@OneToOne(mappedBy="usuario")
 	private Carrito carrito;
+	
+	@OneToMany
+	@JoinColumn(name="id_usuario", referencedColumnName="id_usuario")
+	private Set<Pedido> pedidos = new HashSet<Pedido>();
 
 	public Usuario() {
 	}
 
-	public Usuario(String nombre, String apellido, String email, String password, Integer rol, Carrito carrito) {
+	public Usuario(String nombre, String apellido, String email, String password, Integer rol, Carrito carrito,
+			Set<Pedido> pedidos) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.password = password;
 		this.rol = rol;
 		this.carrito = carrito;
+		this.pedidos = pedidos;
 	}
 
 	public Usuario(Long id_usuario, String nombre, String apellido, String email, String password, Integer rol,
-			Carrito carrito) {
+			Carrito carrito, Set<Pedido> pedidos) {
 		this.id_usuario = id_usuario;
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -68,6 +75,7 @@ public class Usuario implements Serializable {
 		this.password = password;
 		this.rol = rol;
 		this.carrito = carrito;
+		this.pedidos = pedidos;
 	}
 
 	public Long getId_usuario() {
@@ -127,8 +135,15 @@ public class Usuario implements Serializable {
 	}
 
 
-	
-	
 
-	
+	public Set<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+
+
+	public void setPedidos(Set<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
+
 }
