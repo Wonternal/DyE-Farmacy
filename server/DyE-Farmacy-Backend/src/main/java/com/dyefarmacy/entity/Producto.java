@@ -1,5 +1,6 @@
 package com.dyefarmacy.entity;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -7,6 +8,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,15 +19,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
-
 @Entity
 @Table(name="producto")
-public class Producto {
+public class Producto implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idProducto;
+	private Long id_producto;
 
 	@Column
 	private String nombre;
@@ -36,38 +36,82 @@ public class Producto {
 	@Column
 	private Float precio;
 	
-	@ManyToMany(cascade = {
-			CascadeType.PERSIST, 
-			CascadeType.MERGE
-	})	
-	@JoinTable(
-			name = "cesta",
-			joinColumns = @JoinColumn(
-					name = "id_product"
-					),
-			inverseJoinColumns = @JoinColumn(
-					name = "id_usuario"
-					)
-			)
-	private Set<Usuario> usuariosConProductoEnLaCesta = new HashSet<Usuario>();
+	@Column
+	private Integer cantidad;
 	
-	@ManyToMany(cascade = {
-			CascadeType.PERSIST, 
-			CascadeType.MERGE
-	})	
-	@JoinTable(
-			name = "productos_pedido",
-			joinColumns = @JoinColumn(
-					name = "id_product"
-					),
-			inverseJoinColumns = @JoinColumn(
-					name = "id_pedido"
-					)
-			)
-	private Set<Pedidos> pedidosConProducto = new HashSet<Pedidos>();
-	
-	
-	
-	
+	@OneToMany
+	@JoinColumn(name="id_producto", referencedColumnName="id_producto")
+	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
 
+	public Producto() {
+	}
+
+	public Producto(String nombre, String descripcion, Float precio, Integer cantidad, Set<CarritoItem> carritoItems) {
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		this.cantidad = cantidad;
+		this.carritoItems = carritoItems;
+	}
+
+	public Producto(Long id_producto, String nombre, String descripcion, Float precio, Integer cantidad,
+			Set<CarritoItem> carritoItems) {
+		this.id_producto = id_producto;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.precio = precio;
+		this.cantidad = cantidad;
+		this.carritoItems = carritoItems;
+	}
+
+	public Long getId_producto() {
+		return id_producto;
+	}
+
+	public void setId_producto(Long id_producto) {
+		this.id_producto = id_producto;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public Float getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Float precio) {
+		this.precio = precio;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public Set<CarritoItem> getCarritoItems() {
+		return carritoItems;
+	}
+
+	public void setCarritoItems(Set<CarritoItem> carritoItems) {
+		this.carritoItems = carritoItems;
+	}
+	
+	
+	
 }
