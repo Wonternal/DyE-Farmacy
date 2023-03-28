@@ -23,7 +23,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="usuario")
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 
 	@Id
@@ -32,24 +32,24 @@ public class Usuario implements Serializable {
 
 	@Column
 	private String nombre;
-	
+
 	@Column
 	private String apellido;
-	
+
 	@Column
 	private String email;
-	
+
 	@Column
 	private String password;
-	
+
 	@Column
 	private Integer rol;
-	
-	@OneToOne(mappedBy="usuario")
+
+	@OneToOne(mappedBy = "usuario")
 	private Carrito carrito;
-	
+
 	@OneToMany
-	@JoinColumn(name="id_usuario", referencedColumnName="id_usuario")
+	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
 	private Set<Pedido> pedidos = new HashSet<Pedido>();
 
 	public Usuario() {
@@ -134,13 +134,9 @@ public class Usuario implements Serializable {
 		this.carrito = carrito;
 	}
 
-
-
 	public Set<Pedido> getPedidos() {
 		return pedidos;
 	}
-
-
 
 	public void setPedidos(Set<Pedido> pedidos) {
 		this.pedidos = pedidos;

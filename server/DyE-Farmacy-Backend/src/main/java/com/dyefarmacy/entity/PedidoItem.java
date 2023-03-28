@@ -14,10 +14,10 @@ public class PedidoItem implements Serializable {
 	@Id
 	@Column(name = "id_pedido")
 	private Long id_pedido;
-	
+
 	@Column(name = "id_producto")
 	private Long id_producto;
-	
+
 	@Column(name = "cantidad")
 	private Integer cantidad;
 
@@ -53,6 +53,5 @@ public class PedidoItem implements Serializable {
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-	
-	
+
 }

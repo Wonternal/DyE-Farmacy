@@ -12,17 +12,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pedido")
 public class Pedido implements Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_pedido;
-	
+
 	@Column(name = "id_usuario")
 	private Long id_usuario;
-	
+
 	@Column
 	private float precio_total;
-	
+
 	@Column
 	private String direccion;
 
@@ -67,7 +67,5 @@ public class Pedido implements Serializable {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	
-	
 
 }

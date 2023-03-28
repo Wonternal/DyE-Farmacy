@@ -14,19 +14,19 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="carrito")
+@Table(name = "carrito")
 public class Carrito implements Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_carrito;
 
 	@OneToOne
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
-	
+
 	@OneToMany
-	@JoinColumn(name="id_carrito", referencedColumnName="id_carrito")
+	@JoinColumn(name = "id_carrito", referencedColumnName = "id_carrito")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
 
 	public Carrito() {
@@ -66,6 +66,5 @@ public class Carrito implements Serializable {
 	public void setCarritoItems(Set<CarritoItem> carritoItems) {
 		this.carritoItems = carritoItems;
 	}
-	
-	
+
 }

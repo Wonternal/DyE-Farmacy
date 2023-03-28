@@ -10,14 +10,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "carrito_item")
 public class CarritoItem implements Serializable {
-	
+
 	@Id
 	@Column(name = "id_carrito")
 	private Long id_carrito;
-	
+
 	@Column(name = "id_producto")
 	private Long id_producto;
-	
+
 	@Column(name = "cantidad")
 	private Integer cantidad;
 
@@ -54,6 +54,4 @@ public class CarritoItem implements Serializable {
 		this.cantidad = cantidad;
 	}
 
-	
-	
 }

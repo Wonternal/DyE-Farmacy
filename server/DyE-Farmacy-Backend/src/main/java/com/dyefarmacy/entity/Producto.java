@@ -20,37 +20,35 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="producto")
+@Table(name = "producto")
 public class Producto implements Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_producto;
 
 	@Column
 	private String nombre;
-	
+
 	@Column
 	private String descripcion;
-	
+
 	@Column
 	private Float precio;
-	
+
 	@Column
 	private Integer cantidad;
-	
+
 	@OneToMany
-	@JoinColumn(name="id_producto", referencedColumnName="id_producto")
+	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
-	
+
 	@OneToMany
-	@JoinColumn(name="id_producto", referencedColumnName="id_producto")
+	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Set<PedidoItem> pedidoItems = new HashSet<PedidoItem>();
 
 	public Producto() {
 	}
-
-	
 
 	public Producto(String nombre, String descripcion, Float precio, Integer cantidad, Set<CarritoItem> carritoItems,
 			Set<PedidoItem> pedidoItems) {
@@ -62,8 +60,6 @@ public class Producto implements Serializable {
 		this.pedidoItems = pedidoItems;
 	}
 
-
-
 	public Producto(Long id_producto, String nombre, String descripcion, Float precio, Integer cantidad,
 			Set<CarritoItem> carritoItems, Set<PedidoItem> pedidoItems) {
 		this.id_producto = id_producto;
@@ -74,8 +70,6 @@ public class Producto implements Serializable {
 		this.carritoItems = carritoItems;
 		this.pedidoItems = pedidoItems;
 	}
-
-
 
 	public Long getId_producto() {
 		return id_producto;
@@ -125,18 +119,12 @@ public class Producto implements Serializable {
 		this.carritoItems = carritoItems;
 	}
 
-
-
 	public Set<PedidoItem> getPedidoItems() {
 		return pedidoItems;
 	}
 
-
-
 	public void setPedidoItems(Set<PedidoItem> pedidoItems) {
 		this.pedidoItems = pedidoItems;
 	}
-	
-	
-	
+
 }
