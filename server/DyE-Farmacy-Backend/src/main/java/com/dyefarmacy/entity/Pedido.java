@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,7 +31,7 @@ public class Pedido implements Serializable {
 	@Column
 	private String direccion;
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
 	private Set<PedidoItem> pedidoItems = new HashSet<PedidoItem>();
 

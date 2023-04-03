@@ -55,4 +55,12 @@ public class CarritoItem implements Serializable {
 		this.cantidad = cantidad;
 	}
 
+	@Override
+	public String toString() {
+		return "CarritoItem [id_carrito=" + id_carrito + ", id_producto=" + id_producto + ", cantidad=" + cantidad
+				+ "]";
+	}
+	
+	
+
 }

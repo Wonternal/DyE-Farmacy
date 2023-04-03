@@ -45,10 +45,11 @@ public class Usuario implements Serializable {
 	@Column
 	private Integer rol;
 
-	@OneToOne(mappedBy = "usuario")
+	@JsonIgnore
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private Carrito carrito;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
 	private Set<Pedido> pedidos = new HashSet<Pedido>();
 

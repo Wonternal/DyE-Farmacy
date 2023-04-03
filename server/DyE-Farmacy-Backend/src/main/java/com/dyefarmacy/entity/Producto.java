@@ -39,11 +39,11 @@ public class Producto implements Serializable {
 	@Column
 	private Integer cantidad;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Set<PedidoItem> pedidoItems = new HashSet<PedidoItem>();
 
