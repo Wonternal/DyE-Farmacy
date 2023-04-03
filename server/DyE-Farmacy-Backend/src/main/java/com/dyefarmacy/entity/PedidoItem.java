@@ -15,6 +15,7 @@ public class PedidoItem implements Serializable {
 	@Column(name = "id_pedido")
 	private Long id_pedido;
 
+	@Id
 	@Column(name = "id_producto")
 	private Long id_producto;
 

@@ -15,6 +15,7 @@ public class CarritoItem implements Serializable {
 	@Column(name = "id_carrito")
 	private Long id_carrito;
 
+	@Id
 	@Column(name = "id_producto")
 	private Long id_producto;
 
