@@ -5,10 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "carrito_item")
+@IdClass(CarritoItemId.class)
 public class CarritoItem implements Serializable {
 
 	@Id
@@ -54,13 +56,5 @@ public class CarritoItem implements Serializable {
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
-
-	@Override
-	public String toString() {
-		return "CarritoItem [id_carrito=" + id_carrito + ", id_producto=" + id_producto + ", cantidad=" + cantidad
-				+ "]";
-	}
-	
-	
 
 }

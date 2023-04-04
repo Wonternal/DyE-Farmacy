@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.dyefarmacy.entity.Carrito;
 
 @Repository
-public interface CarritoRepository  extends JpaRepository<Carrito, Long> {
+public interface CarritoRepository extends JpaRepository<Carrito, Long> {
 
 }

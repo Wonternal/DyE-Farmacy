@@ -49,12 +49,6 @@ public class Carrito implements Serializable {
 		this.carritoItems = carritoItems;
 	}
 	
-	public void addCarritoItemToCarrito(Long id_carrito, Long id_producto, Integer cantidad) {
-		System.out.println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC" +  id_producto + " - " +  id_carrito + " - " + cantidad);
-		CarritoItem carritoItem = new CarritoItem(id_carrito, id_producto, cantidad);
-		System.out.println(carritoItem);
-		carritoItems.add(carritoItem);
-	}
 
 	public Long getId_carrito() {
 		return id_carrito;
@@ -80,10 +74,4 @@ public class Carrito implements Serializable {
 		this.carritoItems = carritoItems;
 	}
 
-	@Override
-	public String toString() {
-		return "Carrito [id_carrito=" + id_carrito + ", usuario=" + usuario + ", carritoItems=" + carritoItems + "]";
-	}
-
-	
 }

@@ -26,7 +26,6 @@ public class CarritoController {
 	
 	@PostMapping("/carrito/{id_carrito}/{id_producto}/{cantidad}")
 	public Integer addCarritoItemToCarrito(@PathVariable Long id_carrito, @PathVariable Long id_producto, @PathVariable Integer cantidad){
-		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" +  id_producto + " - " +  id_carrito + " - " + cantidad);
 		return carritoService.addCarritoItemToCarrito(id_carrito, id_producto, cantidad);
 	}
 
