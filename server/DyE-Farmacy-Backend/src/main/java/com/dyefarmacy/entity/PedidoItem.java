@@ -2,13 +2,16 @@ package com.dyefarmacy.entity;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "pedido_item")
+@IdClass(PedidoItemId.class)
 public class PedidoItem implements Serializable {
 
 	@Id
@@ -27,6 +30,13 @@ public class PedidoItem implements Serializable {
 
 	public PedidoItem(Long idPedido, Long idProducto, Integer cantidad) {
 		this.idPedido = idPedido;
+		this.idProducto = idProducto;
+		this.cantidad = cantidad;
+	}
+	
+	
+
+	public PedidoItem(Long idProducto, Integer cantidad) {
 		this.idProducto = idProducto;
 		this.cantidad = cantidad;
 	}
