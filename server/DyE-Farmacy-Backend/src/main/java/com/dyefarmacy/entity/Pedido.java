@@ -23,54 +23,54 @@ public class Pedido implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_pedido;
+	private Long idPedido;
 
-	@Column(name = "id_usuario")
-	private Long id_usuario;
+	@Column(name = "idUsuario")
+	private Long idUsuario;
 
 	@Column
-	private float precio_total;
+	private float precioTotal;
 
 	@Column
 	private String direccion;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
+	@JoinColumn(name = "idPedido", referencedColumnName = "idPedido")
 	private Set<PedidoItem> pedidoItems = new HashSet<PedidoItem>();
 
 	public Pedido() {
 	}
 
-	public Pedido(Long id_pedido, Long id_usuario, float precio_total, String direccion) {
-		this.id_pedido = id_pedido;
-		this.id_usuario = id_usuario;
-		this.precio_total = precio_total;
+	public Pedido(Long idPedido, Long idUsuario, float precioTotal, String direccion) {
+		this.idPedido = idPedido;
+		this.idUsuario = idUsuario;
+		this.precioTotal = precioTotal;
 		this.direccion = direccion;
 	}
 
-	public Long getId_pedido() {
-		return id_pedido;
+	public Long getIdPedido() {
+		return idPedido;
 	}
 
-	public void setId_pedido(Long id_pedido) {
-		this.id_pedido = id_pedido;
+	public void setIdPedido(Long idPedido) {
+		this.idPedido = idPedido;
 	}
 
-	public Long getId_usuario() {
-		return id_usuario;
+	public Long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId_usuario(Long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
-	public float getPrecio_total() {
-		return precio_total;
+	public float getPrecioTotal() {
+		return precioTotal;
 	}
 
-	public void setPrecio_total(float precio_total) {
-		this.precio_total = precio_total;
+	public void setPrecioTotal(float precioTotal) {
+		this.precioTotal = precioTotal;
 	}
 
 	public String getDireccion() {

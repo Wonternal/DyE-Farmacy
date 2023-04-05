@@ -2,6 +2,7 @@ package com.dyefarmacy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dyefarmacy.entity.Carrito;
 import com.dyefarmacy.entity.CarritoItem;
@@ -12,6 +13,7 @@ import com.dyefarmacy.repository.ProductoRepository;
 import com.dyefarmacy.repository.UsuarioRepository;
 
 @Service
+@Transactional
 public class CarritoService {
 
 	@Autowired
@@ -48,6 +50,17 @@ public class CarritoService {
 			carritoItemRepository.deleteById(key);
 			return 1;
 		} catch (Exception e) {	
+			return 0;
+		}
+	}
+	
+	public Integer deleteAllItemsByCarritoId(Long id_carrito) {
+		
+		try {
+			carritoItemRepository.deleteAllByIdCarrito(id_carrito);
+			return 1;
+		} catch (Exception e) {	
+			System.out.println(e);
 			return 0;
 		}
 	}

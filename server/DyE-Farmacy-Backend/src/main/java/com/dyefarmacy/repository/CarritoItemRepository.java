@@ -11,4 +11,6 @@ import com.dyefarmacy.entity.CarritoItemId;
 @Repository
 public interface CarritoItemRepository extends JpaRepository<CarritoItem, CarritoItemId>{
 
+	Long deleteAllByIdCarrito(Long idCarrito);
+	
 }

@@ -25,17 +25,17 @@ public class Carrito implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_carrito;
+	private Long idCarrito;
 
 	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "id_usuario")
+	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "id_carrito", referencedColumnName = "id_carrito")
+	@JoinColumn(name = "idCarrito", referencedColumnName = "idCarrito")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
 	
 	
@@ -48,19 +48,19 @@ public class Carrito implements Serializable {
 		this.carritoItems = carritoItems;
 	}
 
-	public Carrito(Long id_carrito, Usuario usuario, Set<CarritoItem> carritoItems) {
-		this.id_carrito = id_carrito;
+	public Carrito(Long idCarrito, Usuario usuario, Set<CarritoItem> carritoItems) {
+		this.idCarrito = idCarrito;
 		this.usuario = usuario;
 		this.carritoItems = carritoItems;
 	}
 	
 
-	public Long getId_carrito() {
-		return id_carrito;
+	public Long getIdCarrito() {
+		return idCarrito;
 	}
 
-	public void setId_carrito(Long id_carrito) {
-		this.id_carrito = id_carrito;
+	public void setIdCarrito(Long idCarrito) {
+		this.idCarrito = idCarrito;
 	}
 
 	public Usuario getUsuario() {

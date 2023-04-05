@@ -28,7 +28,7 @@ public class Producto implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_producto;
+	private Long idProducto;
 
 	@Column
 	private String nombre;
@@ -44,12 +44,12 @@ public class Producto implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
+	@JoinColumn(name = "idProducto", referencedColumnName = "idProducto")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
+	@JoinColumn(name = "idProducto", referencedColumnName = "idProducto")
 	private Set<PedidoItem> pedidoItems = new HashSet<PedidoItem>();
 
 	public Producto() {
@@ -65,9 +65,9 @@ public class Producto implements Serializable {
 		this.pedidoItems = pedidoItems;
 	}
 
-	public Producto(Long id_producto, String nombre, String descripcion, Float precio, Integer cantidad,
+	public Producto(Long idProducto, String nombre, String descripcion, Float precio, Integer cantidad,
 			Set<CarritoItem> carritoItems, Set<PedidoItem> pedidoItems) {
-		this.id_producto = id_producto;
+		this.idProducto = idProducto;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.precio = precio;
@@ -76,12 +76,12 @@ public class Producto implements Serializable {
 		this.pedidoItems = pedidoItems;
 	}
 
-	public Long getId_producto() {
-		return id_producto;
+	public Long getIdProducto() {
+		return idProducto;
 	}
 
-	public void setId_producto(Long id_producto) {
-		this.id_producto = id_producto;
+	public void setIdProducto(Long idProducto) {
+		this.idProducto = idProducto;
 	}
 
 	public String getNombre() {

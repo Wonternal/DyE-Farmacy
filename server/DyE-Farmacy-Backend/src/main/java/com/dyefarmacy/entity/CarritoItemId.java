@@ -6,32 +6,32 @@ import java.io.Serializable;
 
 public class CarritoItemId implements Serializable {
 
-	private Long id_carrito;
+	private Long idCarrito;
 
-	private Long id_producto;
+	private Long idProducto;
 	
 	public CarritoItemId() {
 	}
 	
-	public CarritoItemId(Long id_carrito, Long id_producto) {
-		this.id_carrito = id_carrito;
-		this.id_producto = id_producto;
+	public CarritoItemId(Long idCarrito, Long idProducto) {
+		this.idCarrito = idCarrito;
+		this.idProducto = idProducto;
 	}
 
-	public Long getId_carrito() {
-		return id_carrito;
+	public Long getIdCarrito() {
+		return idCarrito;
 	}
 
-	public void setId_carrito(Long id_carrito) {
-		this.id_carrito = id_carrito;
+	public void setIdCarrito(Long idCarrito) {
+		this.idCarrito = idCarrito;
 	}
 
-	public Long getId_producto() {
-		return id_producto;
+	public Long getIdProducto() {
+		return idProducto;
 	}
 
-	public void setId_producto(Long id_producto) {
-		this.id_producto = id_producto;
+	public void setIdProducto(Long idProducto) {
+		this.idProducto = idProducto;
 	}
 	
 }

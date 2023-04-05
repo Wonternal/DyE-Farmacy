@@ -33,5 +33,10 @@ public class CarritoController {
 	public Integer deleteCarritoItemFromCarrito(@PathVariable Long id_carrito, @PathVariable Long id_producto) {
 		return carritoService.deleteCarritoItemFromCarrito(id_carrito, id_producto);
 	}
+	
+	@DeleteMapping("/carrito/{id_carrito}")
+	public Integer deleteAllItemsByCarritoId(@PathVariable Long id_carrito) {
+		return carritoService.deleteAllItemsByCarritoId(id_carrito);
+	}
 
 }

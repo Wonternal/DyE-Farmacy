@@ -12,12 +12,12 @@ import javax.persistence.Table;
 public class PedidoItem implements Serializable {
 
 	@Id
-	@Column(name = "id_pedido")
-	private Long id_pedido;
+	@Column(name = "idPedido")
+	private Long idPedido;
 
 	@Id
-	@Column(name = "id_producto")
-	private Long id_producto;
+	@Column(name = "idProducto")
+	private Long idProducto;
 
 	@Column(name = "cantidad")
 	private Integer cantidad;
@@ -25,26 +25,26 @@ public class PedidoItem implements Serializable {
 	public PedidoItem() {
 	}
 
-	public PedidoItem(Long id_pedido, Long id_producto, Integer cantidad) {
-		this.id_pedido = id_pedido;
-		this.id_producto = id_producto;
+	public PedidoItem(Long idPedido, Long idProducto, Integer cantidad) {
+		this.idPedido = idPedido;
+		this.idProducto = idProducto;
 		this.cantidad = cantidad;
 	}
 
-	public Long getId_pedido() {
-		return id_pedido;
+	public Long getIdPedido() {
+		return idPedido;
 	}
 
-	public void setId_pedido(Long id_pedido) {
-		this.id_pedido = id_pedido;
+	public void setIdPedido(Long idPedido) {
+		this.idPedido = idPedido;
 	}
 
-	public Long getId_producto() {
-		return id_producto;
+	public Long getIdProducto() {
+		return idProducto;
 	}
 
-	public void setId_producto(Long id_producto) {
-		this.id_producto = id_producto;
+	public void setIdProducto(Long idProducto) {
+		this.idProducto = idProducto;
 	}
 
 	public Integer getCantidad() {
