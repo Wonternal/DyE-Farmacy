@@ -2,10 +2,10 @@ package com.dyefarmacy.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +27,11 @@ public class CarritoController {
 	@PostMapping("/carrito/{id_carrito}/{id_producto}/{cantidad}")
 	public Integer addCarritoItemToCarrito(@PathVariable Long id_carrito, @PathVariable Long id_producto, @PathVariable Integer cantidad){
 		return carritoService.addCarritoItemToCarrito(id_carrito, id_producto, cantidad);
+	}
+	
+	@DeleteMapping("/carrito/{id_carrito}/{id_producto}")
+	public Integer deleteCarritoItemFromCarrito(@PathVariable Long id_carrito, @PathVariable Long id_producto) {
+		return carritoService.deleteCarritoItemFromCarrito(id_carrito, id_producto);
 	}
 
 }

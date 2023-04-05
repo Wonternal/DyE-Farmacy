@@ -19,6 +19,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @Table(name = "producto")
 public class Producto implements Serializable {
@@ -40,10 +43,12 @@ public class Producto implements Serializable {
 	private Integer cantidad;
 
 	@OneToMany(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
 
 	@OneToMany(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
 	private Set<PedidoItem> pedidoItems = new HashSet<PedidoItem>();
 

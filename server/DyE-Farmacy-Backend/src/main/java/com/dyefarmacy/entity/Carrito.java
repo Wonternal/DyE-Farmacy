@@ -14,6 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -26,10 +29,12 @@ public class Carrito implements Serializable {
 
 	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
 
 	@OneToMany(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "id_carrito", referencedColumnName = "id_carrito")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
 	

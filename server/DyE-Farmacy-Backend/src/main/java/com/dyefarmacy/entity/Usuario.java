@@ -47,9 +47,11 @@ public class Usuario implements Serializable {
 
 	@JsonIgnore
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Carrito carrito;
 
 	@OneToMany(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
 	private Set<Pedido> pedidos = new HashSet<Pedido>();
 

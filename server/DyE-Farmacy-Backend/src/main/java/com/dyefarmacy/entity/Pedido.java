@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @Table(name = "pedido")
 public class Pedido implements Serializable {
@@ -32,6 +35,7 @@ public class Pedido implements Serializable {
 	private String direccion;
 	
 	@OneToMany(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "id_pedido", referencedColumnName = "id_pedido")
 	private Set<PedidoItem> pedidoItems = new HashSet<PedidoItem>();
 
