@@ -28,7 +28,7 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_usuario;
+	private Long idUsuario;
 
 	@Column
 	private String nombre;
@@ -45,11 +45,14 @@ public class Usuario implements Serializable {
 	@Column
 	private Integer rol;
 
-	@OneToOne(mappedBy = "usuario")
+	@JsonIgnore
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Carrito carrito;
 
-	@OneToMany
-	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+	@OneToMany(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario")
 	private Set<Pedido> pedidos = new HashSet<Pedido>();
 
 	public Usuario() {
@@ -66,9 +69,9 @@ public class Usuario implements Serializable {
 		this.pedidos = pedidos;
 	}
 
-	public Usuario(Long id_usuario, String nombre, String apellido, String email, String password, Integer rol,
+	public Usuario(Long idUsuario, String nombre, String apellido, String email, String password, Integer rol,
 			Carrito carrito, Set<Pedido> pedidos) {
-		this.id_usuario = id_usuario;
+		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
@@ -78,12 +81,12 @@ public class Usuario implements Serializable {
 		this.pedidos = pedidos;
 	}
 
-	public Long getId_usuario() {
-		return id_usuario;
+	public Long getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setId_usuario(Long id_usuario) {
-		this.id_usuario = id_usuario;
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getNombre() {

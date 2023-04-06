@@ -5,18 +5,21 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "carrito_item")
+@IdClass(CarritoItemId.class)
 public class CarritoItem implements Serializable {
 
 	@Id
-	@Column(name = "id_carrito")
-	private Long id_carrito;
+	@Column(name = "idCarrito")
+	private Long idCarrito;
 
-	@Column(name = "id_producto")
-	private Long id_producto;
+	@Id
+	@Column(name = "idProducto")
+	private Long idProducto;
 
 	@Column(name = "cantidad")
 	private Integer cantidad;
@@ -24,26 +27,26 @@ public class CarritoItem implements Serializable {
 	public CarritoItem() {
 	}
 
-	public CarritoItem(Long id_carrito, Long id_producto, Integer cantidad) {
-		this.id_carrito = id_carrito;
-		this.id_producto = id_producto;
+	public CarritoItem(Long idCarrito, Long idProducto, Integer cantidad) {
+		this.idCarrito = idCarrito;
+		this.idProducto = idProducto;
 		this.cantidad = cantidad;
 	}
 
-	public Long getId_carrito() {
-		return id_carrito;
+	public Long getIdCarrito() {
+		return idCarrito;
 	}
 
-	public void setId_carrito(Long id_carrito) {
-		this.id_carrito = id_carrito;
+	public void setIdCarrito(Long idCarrito) {
+		this.idCarrito = idCarrito;
 	}
 
-	public Long getId_producto() {
-		return id_producto;
+	public Long getIdProducto() {
+		return idProducto;
 	}
 
-	public void setId_producto(Long id_producto) {
-		this.id_producto = id_producto;
+	public void setIdProducto(Long idProducto) {
+		this.idProducto = idProducto;
 	}
 
 	public Integer getCantidad() {

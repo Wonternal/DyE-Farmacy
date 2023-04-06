@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,21 +14,31 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "carrito")
 public class Carrito implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_carrito;
+	private Long idCarrito;
 
-	@OneToOne
-	@JoinColumn(name = "id_usuario")
+	@JsonIgnore
+	@OneToOne(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;
 
-	@OneToMany
-	@JoinColumn(name = "id_carrito", referencedColumnName = "id_carrito")
+	@OneToMany(cascade = CascadeType.ALL)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JoinColumn(name = "idCarrito", referencedColumnName = "idCarrito")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
+	
+	
 
 	public Carrito() {
 	}
@@ -37,18 +48,19 @@ public class Carrito implements Serializable {
 		this.carritoItems = carritoItems;
 	}
 
-	public Carrito(Long id_carrito, Usuario usuario, Set<CarritoItem> carritoItems) {
-		this.id_carrito = id_carrito;
+	public Carrito(Long idCarrito, Usuario usuario, Set<CarritoItem> carritoItems) {
+		this.idCarrito = idCarrito;
 		this.usuario = usuario;
 		this.carritoItems = carritoItems;
 	}
+	
 
-	public Long getId_carrito() {
-		return id_carrito;
+	public Long getIdCarrito() {
+		return idCarrito;
 	}
 
-	public void setId_carrito(Long id_carrito) {
-		this.id_carrito = id_carrito;
+	public void setIdCarrito(Long idCarrito) {
+		this.idCarrito = idCarrito;
 	}
 
 	public Usuario getUsuario() {
