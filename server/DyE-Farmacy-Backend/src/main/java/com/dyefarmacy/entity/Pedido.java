@@ -1,6 +1,7 @@
 package com.dyefarmacy.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,6 +35,9 @@ public class Pedido implements Serializable {
 	@Column
 	private String direccion;
 	
+	@Column
+	LocalDate fechaHoy = LocalDate.now();
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "idPedido", referencedColumnName = "idPedido")
@@ -42,11 +46,12 @@ public class Pedido implements Serializable {
 	public Pedido() {
 	}
 
-	public Pedido(Long idPedido, Long idUsuario, float precioTotal, String direccion) {
+	public Pedido(Long idPedido, Long idUsuario, float precioTotal, String direccion, LocalDate fechaHoy) {
 		this.idPedido = idPedido;
 		this.idUsuario = idUsuario;
 		this.precioTotal = precioTotal;
 		this.direccion = direccion;
+		this.fechaHoy = fechaHoy;
 	}
 
 	public Long getIdPedido() {
@@ -80,5 +85,23 @@ public class Pedido implements Serializable {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
+	public LocalDate getFechaHoy() {
+		return fechaHoy;
+	}
+
+	public void setFechaHoy(LocalDate fechaHoy) {
+		this.fechaHoy = fechaHoy;
+	}
+
+	public Set<PedidoItem> getPedidoItems() {
+		return pedidoItems;
+	}
+
+	public void setPedidoItems(Set<PedidoItem> pedidoItems) {
+		this.pedidoItems = pedidoItems;
+	}
+	
+	
 
 }
