@@ -53,6 +53,14 @@ public class Pedido implements Serializable {
 		this.direccion = direccion;
 		this.fechaHoy = fechaHoy;
 	}
+	
+	
+
+	public Pedido(Long idUsuario, float precioTotal, String direccion) {
+		this.idUsuario = idUsuario;
+		this.precioTotal = precioTotal;
+		this.direccion = direccion;
+	}
 
 	public Long getIdPedido() {
 		return idPedido;
