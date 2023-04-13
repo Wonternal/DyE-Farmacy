@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
+:root {
+    --colorVerdeFarmacia: #7fc4a5;
+    --azulLetrasLightMode: #003d61;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logoImage {
+    height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.botonesContainer {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.botonImage {
+    height: 30px;
+    width: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: black;
+}
+
+.footerContainer p {
+    color: white;
+}
+
+.homeContainer {
+    height: 100vh;
+}
+
+.loginContainer {
+    background-image: url("./assets/backgrounds/20378251.jpg");
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formularioLogin {
+    padding: 50px;
+    background-color: white;
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 4px;
+}
+
+.formularioLoginInput {
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 0px;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.formularioLogin .btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: var(--colorVerdeFarmacia) !important;
+    border: #7fc4a5;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.iconoBotonLogin {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.registerLink {
+    color: var(--colorVerdeFarmacia);
+    text-decoration: none;
+}
+
+.registerLink:hover {
+    color: var(--colorVerdeFarmacia);
+}
+
+.helpButton {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    height: 70px;
+    width: 70px;
+    background-color: var(--azulLetrasLightMode);
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.helpButton img {
+    height: 35px;
+    width: 35px;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--colorVerdeFarmacia) #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--colorVerdeFarmacia);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
 }
