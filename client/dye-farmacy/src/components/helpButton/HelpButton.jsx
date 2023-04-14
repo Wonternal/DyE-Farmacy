@@ -5,7 +5,7 @@ const HelpButton = () => {
     return (
         <div className="helpButton">
             <a href="https://lacuesta.salesianos.edu/contactar/" target="_blank" rel="noreferrer">
-                <img src={helpIcon} className="iconoBotonHelp" alt="" srcset="" />
+                <img src={helpIcon} className="iconoBotonHelp" alt="icono de ayuda" />
             </a>
         </div>
     );

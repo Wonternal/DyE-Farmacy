@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dyefarmacy.entity.Usuario;
 import com.dyefarmacy.service.UsuarioService;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1")
 public class UsuarioController {
@@ -25,13 +27,30 @@ public class UsuarioController {
 	UsuarioService usuarioService;
 	
 	@PostMapping("/usuario")
-	public Usuario addUsuario(@RequestBody Usuario usuario){
-		return usuarioService.addUsuario(usuario);
+	public ResponseEntity<?> addUsuario(@RequestBody Usuario usuario){
+		try {
+			return new ResponseEntity<>(usuarioService.addUsuario(usuario), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>("Error en el servidor", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@GetMapping("/usuario")
 	public List<Usuario> getAllUsuarios(){
 		return usuarioService.getAllUsuarios();
+	}
+	
+	@PostMapping("/usuario/check")
+	public ResponseEntity<?> checkIfUserIsRegistered(@RequestBody Usuario usuario){
+		try {
+			if (usuarioService.checkIfUserIsRegistered(usuario) == 1) {
+				return new ResponseEntity<>("El usuario está registrado con ese email y contraseña", HttpStatus.OK);
+			}
+			return new ResponseEntity<>("El usuario no está registrado", HttpStatus.NOT_FOUND);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>("Error en el servidor", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 	}
 	
 	@GetMapping("/usuario/{id}")

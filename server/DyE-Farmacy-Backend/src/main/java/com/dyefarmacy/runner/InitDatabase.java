@@ -35,10 +35,10 @@ public class InitDatabase implements CommandLineRunner{
 		System.out.println("*******************************************");
 		
 		// CREACIÓN DE LOS USUARIOS
-		Usuario usuario1 = new Usuario("Darío", "Chinea Delgado", "dariocd0808@gamil.com", "1234", 1, new Carrito(), new HashSet<Pedido>());
+		Usuario usuario1 = new Usuario("Darío", "Chinea Delgado", "dariocd0808@gmail.com", "1234", 1, new Carrito(), new HashSet<Pedido>());
 		usuario1.setCarrito(new Carrito(usuario1, new HashSet<CarritoItem>()));
 		
-		Usuario usuario2 = new Usuario("Eduardo", "Camacho Díaz", "fgda2000@gamil.com", "1234", 0, new Carrito(), new HashSet<Pedido>());
+		Usuario usuario2 = new Usuario("Eduardo", "Camacho Díaz", "fgada200@gmail.com", "1234", 0, new Carrito(), new HashSet<Pedido>());
 		usuario2.setCarrito(new Carrito(usuario2, new HashSet<CarritoItem>()));
 		
 		// CREACIÓN DE LOS PRODUCTOS
