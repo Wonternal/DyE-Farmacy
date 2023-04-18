@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const PerfilUsuario = ({ setIsLogged, userData }) => {
     const iconoLogin = require("../../assets/light/user (2).png");
     const iconoLogout = require("../../assets/light/logout-white.png");
+    const iconoEye = require("../../assets/dark/eye.png");
     const[verPassword, setVerPassword] = useState(false)
 
     const navigate = useNavigate();
@@ -75,17 +76,18 @@ const PerfilUsuario = ({ setIsLogged, userData }) => {
                         <label className="text-secondary">
                             CONTRASEÑA
                         </label>
-                        <div onClick={() =>  setVerPassword(!verPassword)}>
+                        <div style={{display : "flex"}}>
                             {
                                 verPassword ? userData.password : retrievePassword()
                             }
+                            <img className="iconoBotonVerPassword mr-5" src={iconoEye} alt="" onClick={() =>  setVerPassword(!verPassword)}/>
                         </div>
                     </div>
                     <hr />
                     <div>
                         <div className="btn btn-primary w-100" onClick={() => logout()}>
                             <img className="iconoBotonLogin mr-5" src={iconoLogout} alt="" />
-                            <b>LOGOUT</b>
+                            <b>CERRAR SESIÓN</b>
                         </div>
                     </div>
                 </form>

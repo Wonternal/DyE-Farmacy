@@ -69,7 +69,8 @@
     margin-bottom: 10px;
 }
 
-.formularioLogin .btn-primary,
+.formularioLogin 
+.btn-primary,
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:visited {
@@ -83,10 +84,32 @@
     font-size: 20px;
 }
 
+.productCard 
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: var(--colorVerdeFarmacia) !important;
+    border: #7fc4a5;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    font-size: 20px;
+}
+
+
 .iconoBotonLogin {
     height: 20px;
     width: 20px;
     margin-right: 10px;
+}
+.iconoBotonVerPassword{
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    margin-left: 5px;
 }
 
 .registerLink {
@@ -96,6 +119,10 @@
 
 .registerLink:hover {
     color: var(--colorVerdeFarmacia);
+}
+.productContent {
+    margin: 30px;
+    text-align: center;
 }
 
 .helpButton {
@@ -153,6 +180,16 @@
     border-radius: var(--bs-btn-border-radius);
     background-color: var(--bs-btn-bg);
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.productCardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-inline: 100px;
+}
+.productCard{
+    margin: 30px
 }
 
 /* ===== Scrollbar CSS ===== */
