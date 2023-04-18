@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ isLogged }) => {
     const logoClaro = require("../../assets/logos/Logo_claro.png");
 
     const iconoLuna = require("../../assets/dark/night-mode.png");
@@ -16,9 +16,16 @@ const Header = () => {
                 </Link>
                 <div className="botonesContainer">
                     <img src={iconoLuna} alt="logo" className="botonImage" />
-                    <Link to={"/login"}>
-                        <img src={iconoUsuario} alt="Icono Usuario" className="botonImage" />
-                    </Link>
+                    {
+                        isLogged ?
+                            <Link to={"/perfil"}>
+                                <img src={iconoUsuario} alt="Icono Usuario" className="botonImage" />
+                            </Link>
+                            :
+                            <Link to={"/login"}>
+                                <img src={iconoUsuario} alt="Icono Usuario" className="botonImage" />
+                            </Link>
+                    }
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <img src={iconoCesta} alt="logo" className="botonImage" />
                         <span style={{ marginLeft: 5 }}>0,00€</span>

@@ -44,7 +44,8 @@ public class UsuarioController {
 	public ResponseEntity<?> checkIfUserIsRegistered(@RequestBody Usuario usuario){
 		try {
 			if (usuarioService.checkIfUserIsRegistered(usuario) == 1) {
-				return new ResponseEntity<>("El usuario está registrado con ese email y contraseña", HttpStatus.OK);
+				Usuario _usuario = usuarioService.getUserByEmail(usuario.getEmail());
+				return new ResponseEntity<>(_usuario, HttpStatus.OK);
 			}
 			return new ResponseEntity<>("El usuario no está registrado", HttpStatus.NOT_FOUND);
 			

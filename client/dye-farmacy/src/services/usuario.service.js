@@ -41,6 +41,15 @@ const loginUser = async (data) => {
     }
 };
 
+const retrieveUserData = async (correo) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+
+}
+
 const UsuarioServices = {
     registerUser,
     loginUser,

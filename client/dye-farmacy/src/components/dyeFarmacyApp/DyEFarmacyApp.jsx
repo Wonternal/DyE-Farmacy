@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 import Login from "../login/Login";
 import Register from "../register/Register";
@@ -6,19 +7,19 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import Home from "../home/Home";
 import HelpButton from "../helpButton/HelpButton";
+import PerfilUsuario from "../perfilUsuario/PerfilUsuario";
 
 const DyEFarmacyApp = () => {
-    /**
-     * All paths lead us to the new route
-     * The :_id is used so that the id can be seen in the url and can be retrieved in ActorEdit
-     */
+    const [isLogged, setIsLogged] = useState(false);
+    const [userData, setUserData] = useState();
     return (
         <div className="">
-            <Header />
+            <Header isLogged={isLogged} />
             <Routes>
-                <Route path="/" element={<Home />}></Route>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/register" element={<Register />}></Route>
+                <Route path="/" element={<Home isLogged={isLogged}/>}></Route>
+                <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData}/> }></Route>
+                <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData}/>}></Route>
+                <Route path="/perfil" element={<PerfilUsuario setIsLogged={setIsLogged} userData={userData}/>}></Route>
             </Routes>
             <HelpButton />
             <Footer />

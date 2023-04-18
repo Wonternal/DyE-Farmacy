@@ -91,4 +91,12 @@ public class UsuarioService {
 			throw e;
 		}
 	}
+	
+	public Usuario getUserByEmail (String email) {
+		try {
+			return usuarioRepository.findByEmail(email).get();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
 }

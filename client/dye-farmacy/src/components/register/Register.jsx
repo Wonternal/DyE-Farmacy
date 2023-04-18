@@ -5,7 +5,9 @@ import UsuarioServices from "../../services/usuario.service";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Register = () => {
+const Register = ({setIsLogged, setUserData}) => {
+
+
     const iconoLogin = require("../../assets/light/user (2).png");
 
     const navigate = useNavigate();
@@ -28,9 +30,6 @@ const Register = () => {
 
     const handleOnSubmit = (e) => {
         e.preventDefault();
-        // if (inputsData.nombre.trim() === "" || inputsData.apelldios.trim() === "" || inputsData.email.trim() === "" || inputsData.password.trim() === "") {
-        //     alert("Introduce todos los campos");
-        // }
         async function insertUsuario() {
             try {
                 const response = await UsuarioServices.registerUser(inputsData);
@@ -38,6 +37,8 @@ const Register = () => {
                     Swal.fire("Error en el registro", `El email ${inputsData.email} ya ha sido registrado previamente`, "error");
                     return;
                 }
+                response.json().then((response) => setUserData(response));
+                setIsLogged(true);
                 Swal.fire("Registro realizado correctamente", "Le llegará un email de confirmación", "success");
                 navigate("/");
             } catch (error) {
