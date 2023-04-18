@@ -34,9 +34,9 @@ public class Usuario implements Serializable {
 	private String nombre;
 
 	@Column
-	private String apellido;
+	private String apellidos;
 
-	@Column
+	@Column(unique=true)
 	private String email;
 
 	@Column
@@ -58,10 +58,10 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	public Usuario(String nombre, String apellido, String email, String password, Integer rol, Carrito carrito,
+	public Usuario(String nombre, String apellidos, String email, String password, Integer rol, Carrito carrito,
 			Set<Pedido> pedidos) {
 		this.nombre = nombre;
-		this.apellido = apellido;
+		this.apellidos = apellidos;
 		this.email = email;
 		this.password = password;
 		this.rol = rol;
@@ -69,11 +69,11 @@ public class Usuario implements Serializable {
 		this.pedidos = pedidos;
 	}
 
-	public Usuario(Long idUsuario, String nombre, String apellido, String email, String password, Integer rol,
+	public Usuario(Long idUsuario, String nombre, String apellidos, String email, String password, Integer rol,
 			Carrito carrito, Set<Pedido> pedidos) {
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
-		this.apellido = apellido;
+		this.apellidos = apellidos;
 		this.email = email;
 		this.password = password;
 		this.rol = rol;
@@ -97,12 +97,12 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getApellidos() {
+		return apellidos;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 
 	public String getEmail() {

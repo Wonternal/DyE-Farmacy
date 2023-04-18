@@ -24,9 +24,13 @@ public class UsuarioService {
 	CarritoRepository carritoRepository;
 	
 	public Usuario addUsuario (Usuario usuario) {
-		Usuario _usuario = usuarioRepository.save(usuario);
-		_usuario.setCarrito(new Carrito(_usuario, new HashSet<CarritoItem>()));
-		return usuarioRepository.save(_usuario);
+		try {
+			Usuario _usuario = usuarioRepository.save(usuario);
+			_usuario.setCarrito(new Carrito(_usuario, new HashSet<CarritoItem>()));
+			return usuarioRepository.save(_usuario);
+		} catch (Exception e) {
+		    throw e;
+		}
 	}
 	
 	public Usuario getUsuarioById (Long id_usuario) {
@@ -58,7 +62,7 @@ public class UsuarioService {
 		if(optionalUsuario.isPresent()) {
 			Usuario _usuario = optionalUsuario.get();
 			_usuario.setNombre(usuario.getNombre());
-			_usuario.setApellido(usuario.getApellido());
+			_usuario.setApellidos(usuario.getApellidos());
 			_usuario.setEmail(usuario.getEmail());
 			_usuario.setPassword(usuario.getPassword());
 			_usuario.setRol(usuario.getRol());
@@ -71,4 +75,28 @@ public class UsuarioService {
 		return usuarioRepository.findById(id_usuario).get().getCarrito();
 	}
 
+	
+	public Integer checkIfUserIsRegistered(Usuario usuario) {
+		try {
+			Optional<Usuario> optionalUsuario = usuarioRepository.findByEmail(usuario.getEmail());
+			if(optionalUsuario.isPresent()) {
+				Usuario _usuario = optionalUsuario.get();
+				if (_usuario.getPassword().equals(usuario.getPassword())) {
+					return 1;
+				}
+			}
+			return 0;
+			
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	
+	public Usuario getUserByEmail (String email) {
+		try {
+			return usuarioRepository.findByEmail(email).get();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
 }
