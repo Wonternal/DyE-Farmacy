@@ -13,16 +13,16 @@ import Producto from "../producto/Producto";
 const DyEFarmacyApp = () => {
     const [isLogged, setIsLogged] = useState(false);
     const [userData, setUserData] = useState();
-    
+
     return (
         <div className="">
             <Header isLogged={isLogged} />
             <Routes>
-                <Route path="/" element={<Home isLogged={isLogged}/>}></Route>
-                <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData}/> }></Route>
-                <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData}/>}></Route>
-                <Route path="/perfil" element={<PerfilUsuario setIsLogged={setIsLogged} userData={userData}/>}></Route>
-                <Route path="/producto/:id" element={<Producto/>}></Route>
+                <Route path="/" element={<Home isLogged={isLogged} />}></Route>
+                <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
+                <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
+                <Route path="/perfil" element={<PerfilUsuario setIsLogged={setIsLogged} userData={userData} />}></Route>
+                <Route path="/producto/:id" element={<Producto />}></Route>
             </Routes>
             <HelpButton />
             <Footer />

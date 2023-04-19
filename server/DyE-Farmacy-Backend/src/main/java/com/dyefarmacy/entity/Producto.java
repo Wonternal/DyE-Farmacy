@@ -33,7 +33,7 @@ public class Producto implements Serializable {
 	@Column
 	private String nombre;
 
-	@Column
+	@Column(length = 1000)
 	private String descripcion;
 
 	@Column

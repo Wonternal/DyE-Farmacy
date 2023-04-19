@@ -6,10 +6,8 @@ const Producto = () => {
     const { id } = useParams();
 
     const [producto, setProducto] = useState();
-    /**
-     * With the useEffect we check if the _id has a value, if so, enter the if and with the getActor function of 
-     * ActorServices it returns the actor data and we save it in actorData, and through the setCurrentActor we save it in currentActor.
-     */
+    const iconPorgress = require("../../assets/backgrounds/workporgess.png");
+    const iconCarrito = require("../../assets/dark/shopping-cart.png");
     useEffect(() => {
         if (id) {
             async function retriveProduct() {
@@ -24,22 +22,33 @@ const Producto = () => {
         }
     }, [id])
 
-    return(
+    return (
         <>
-        <div>
-            <p>
-                {producto?.nombre}
-            </p>
-            <p>
-                {producto?.idProducto}
-            </p>
-            <p>
-                {producto?.descripcion}
-            </p>
-            <p>
-                {producto?.precio}
-            </p>
-        </div>
+            <div className="productContainertId">
+                <img style={{ width: 450 }} src={iconPorgress} alt="Card image cap" />
+                <div style={{ marginLeft: 20 }}>
+                    <h1>
+                        <b>{producto?.nombre}</b>
+                    </h1>
+                    <p style={{ color: "lightgrey" }}>
+                        Referencia: {producto?.idProducto}
+                    </p>
+                    <p>
+                        {producto?.descripcion}
+                    </p>
+                    <hr />
+                    <p>
+                        {producto?.precio} € / u
+                    </p>
+                    <div className="containerCarrito">
+                        <input className="inputCarritoContainer" type="number" />
+                        <div className="textoCarritoContainer">
+                            <img style={{ width: 20, marginRight: 10 }} src={iconCarrito} />
+                            <label className="textoCarrito">AÑADIR AL CARRITO</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 };

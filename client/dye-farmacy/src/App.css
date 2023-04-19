@@ -1,6 +1,7 @@
 :root {
     --colorVerdeFarmacia: #7fc4a5;
     --azulLetrasLightMode: #003d61;
+    --grisClaroFondoCards : #F5F5F5;
 }
 
 .headerContainer {
@@ -110,8 +111,8 @@
     width: 20px;
     margin-right: 10px;
     margin-left: 5px;
+    cursor: pointer;
 }
-
 .registerLink {
     color: var(--colorVerdeFarmacia);
     text-decoration: none;
@@ -124,7 +125,35 @@
     margin: 30px;
     text-align: center;
 }
-
+.productContainertId{
+    display: flex;
+    margin: 30px;
+}
+.containerCarrito{
+    display: flex;
+}
+.inputCarritoContainer{
+    padding: 15px;
+    flex: 1;
+    border: 1px solid black;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.textoCarritoContainer{
+    background-color: var(--colorVerdeFarmacia);
+    padding: 15px;
+    flex: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.textoCarrito{
+    color: white;
+    font-weight: bold;
+}
 .helpButton {
     position: fixed;
     right: 50px;
@@ -189,7 +218,34 @@
     padding-inline: 100px;
 }
 .productCard{
-    margin: 30px
+    margin: 30px;
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-border-width: 1px;
+    --bs-card-border-color: var(--bs-border-color-translucent);
+    --bs-card-border-radius: 0.375rem;
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(0.375rem - 1px);
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: #fff;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--grisClaroFondoCards);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
 }
 
 /* ===== Scrollbar CSS ===== */

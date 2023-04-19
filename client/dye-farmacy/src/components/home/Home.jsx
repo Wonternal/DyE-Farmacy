@@ -29,7 +29,7 @@ const Home = ({ isLogged }) => {
             <div className="productCardContainer">
                 {productos.map((producto) => {
                     return (
-                        <div className="card productCard" style={{ width: "20rem" }} key={producto.idProducto}>
+                        <div className="productCard" style={{ width: "20rem" }} key={producto.idProducto}>
                             <div className="productContent">
                                 <div onClick={() => linkToProduct(producto.idProducto)} style={{cursor: "pointer"}}>
                                     <img className="card-img-top" src={iconPorgress} alt="Card image cap" />
