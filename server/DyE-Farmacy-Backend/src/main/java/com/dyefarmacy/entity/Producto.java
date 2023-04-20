@@ -41,6 +41,9 @@ public class Producto implements Serializable {
 
 	@Column
 	private Integer cantidad;
+	
+	@Column
+	private String categoria;
 
 	@OneToMany(cascade = CascadeType.ALL)
 	@OnDelete(action = OnDeleteAction.CASCADE)
@@ -55,7 +58,7 @@ public class Producto implements Serializable {
 	public Producto() {
 	}
 
-	public Producto(String nombre, String descripcion, Float precio, Integer cantidad, Set<CarritoItem> carritoItems,
+	public Producto(String nombre, String descripcion, Float precio, Integer cantidad,String categoria, Set<CarritoItem> carritoItems,
 			Set<PedidoItem> pedidoItems) {
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -63,9 +66,10 @@ public class Producto implements Serializable {
 		this.cantidad = cantidad;
 		this.carritoItems = carritoItems;
 		this.pedidoItems = pedidoItems;
+		this.categoria = categoria;
 	}
 
-	public Producto(Long idProducto, String nombre, String descripcion, Float precio, Integer cantidad,
+	public Producto(Long idProducto, String nombre, String descripcion, Float precio, Integer cantidad,String categoria,
 			Set<CarritoItem> carritoItems, Set<PedidoItem> pedidoItems) {
 		this.idProducto = idProducto;
 		this.nombre = nombre;
@@ -74,6 +78,7 @@ public class Producto implements Serializable {
 		this.cantidad = cantidad;
 		this.carritoItems = carritoItems;
 		this.pedidoItems = pedidoItems;
+		this.categoria = categoria;
 	}
 
 	public Long getIdProducto() {
@@ -130,6 +135,14 @@ public class Producto implements Serializable {
 
 	public void setPedidoItems(Set<PedidoItem> pedidoItems) {
 		this.pedidoItems = pedidoItems;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
 	}
 
 }
