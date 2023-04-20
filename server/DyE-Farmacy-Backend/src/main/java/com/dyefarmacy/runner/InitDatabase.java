@@ -48,8 +48,12 @@ public class InitDatabase implements CommandLineRunner{
 				+ "Los nombres callejeros del LSD incluyen ácido, papel secante, ácido secante, alegría azul, eléctrica Kool-Aid, golpes, Lucy en el cielo con diamantes, amarillo suave, micropuntos, neblina púrpura, terrones de azúcar, pestañas sol, y cristal de la ventana.", 50.8f, 200, "Droga", new HashSet<CarritoItem>(), new HashSet<PedidoItem>());
 		Producto tirita = new Producto("Tirita", "Una tira adhesiva sanitaria, apósito adhesivo, venda adhesiva, curita o tirita, es una cinta adhesiva de corta extensión con un apósito esterilizado en el centro, utilizada para el tratamiento de heridas pequeñas. Se la conoce popularmente como curita o tirita, según el país, por las marcas vulgarizadas con las que antiguamente se identificaba al producto.", 0.25f, 200,"Droga", new HashSet<CarritoItem>(), new HashSet<PedidoItem>());
 		Producto venda = new Producto("Venda", "Un vendaje consiste en envolver una parte del cuerpo que está lesionada por diversos motivos con paños de lino o de lana (dependiendo de tu habilidad de primeros auxilios) unidas entre sí y colocadas en un orden racional.", 0.5f, 200, "Salud", new HashSet<CarritoItem>(), new HashSet<PedidoItem>());
-		Producto barritaEnergetica = new Producto("Barrita energética", "Una barrita energética es un suplemento dietético consumido por los atletas y aquellas personas sometidas a un intenso esfuerzo físico que necesiten mantener energías mediante la ingestión de alimentos. Posee principalmente carbohidratos complejos. Algunas barras suelen contener un porcentaje de proteína (generalmente proteína de soja) así como una selección de vitaminas. Suelen tener sabores que recuerdan a las galletas o los muffins, también pueden tener sabor a chocolate o a frutos secos.", 1.99f, 200, "Comida", new HashSet<CarritoItem>(), new HashSet<PedidoItem>());
+		Producto barritaEnergeticaProzisChocolate = new Producto("Barrita energética Prozis Chocolate", "Una barrita energética es un suplemento dietético consumido por los atletas y aquellas personas sometidas a un intenso esfuerzo físico que necesiten mantener energías mediante la ingestión de alimentos. Posee principalmente carbohidratos complejos. Algunas barras suelen contener un porcentaje de proteína (generalmente proteína de soja) así como una selección de vitaminas. Suelen tener sabores que recuerdan a las galletas o los muffins, también pueden tener sabor a chocolate o a frutos secos.", 1.99f, 200, "Comida", new HashSet<CarritoItem>(), new HashSet<PedidoItem>());
+		Producto colirioVispring = new Producto("Colirio Vispring", "Colirio para el alivio sintomático de la congestión conjuntival leve en adultos y niños mayores de 6 años. Contiene 10 monodosis.", 8.20f, 200, "Medicamento", new HashSet<CarritoItem>(), new HashSet<PedidoItem>());
+		Producto rhinovinDuoNebulizadorNasal = new Producto("Rhinovin Duo Nebulizador Nasal", "Nebulizador nasal que alivia de forma local y temporal la congestión." + "Contiene 10 ml.", 7.35f, 200, "Medicamento", new HashSet<CarritoItem>(), new HashSet<PedidoItem>());
 		
+		
+		Producto bisolvonAntitusivo = new Producto("Bisolvon Antitusivo", "Jarabe para el tratamiento sintomático de la tos que no vaya acompañada de expectoración. A partir dos 2 años. Contiene 200 ml", 9.50f, 200, "Medicamento", new HashSet<CarritoItem>(), new HashSet<PedidoItem>());
 		// AÑADIR PRODUCTOS A LA CESTA
 		CarritoItem carritoItem1 = new CarritoItem(2l, 1l, 10);
 		CarritoItem carritoItem2 = new CarritoItem(2l, 2l, 1);
@@ -64,7 +68,10 @@ public class InitDatabase implements CommandLineRunner{
 		productoRepository.save(lsd);
 		productoRepository.save(tirita);
 		productoRepository.save(venda);
-		productoRepository.save(barritaEnergetica);
+		productoRepository.save(barritaEnergeticaProzisChocolate);
+		productoRepository.save(colirioVispring);
+		productoRepository.save(rhinovinDuoNebulizadorNasal);
+		productoRepository.save(bisolvonAntitusivo);
 		
 		carritoItemRepository.save(carritoItem1);
 		carritoItemRepository.save(carritoItem2);
