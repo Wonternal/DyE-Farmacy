@@ -25,7 +25,7 @@ const Producto = () => {
     return (
         <>
             <div className="productContainertId">
-                <img style={{ width: 450 }} src={iconPorgress} alt="Card image cap" />
+                <img style={{ width: 450 }} src={iconPorgress} alt="" />
                 <div style={{ marginLeft: 20 }}>
                     <h1>
                         <b>{producto?.nombre}</b>
@@ -42,10 +42,10 @@ const Producto = () => {
                     </p>
                     <div className="containerCarrito">
                         <input className="inputCarritoContainer" type="number" />
-                        <div className="textoCarritoContainer">
-                            <img style={{ width: 20, marginRight: 10 }} src={iconCarrito} />
+                        <button className="textoCarritoContainer">
+                            <img style={{ width: 20, marginRight: 10 }} src={iconCarrito} alt=""/>
                             <label className="textoCarrito">AÑADIR AL CARRITO</label>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>
