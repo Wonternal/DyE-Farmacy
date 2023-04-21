@@ -9,6 +9,7 @@ import Home from "../home/Home";
 import HelpButton from "../helpButton/HelpButton";
 import PerfilUsuario from "../perfilUsuario/PerfilUsuario";
 import Producto from "../producto/Producto";
+import Cesta from "../cesta/Cesta";
 
 const DyEFarmacyApp = () => {
     const [isLogged, setIsLogged] = useState(false);
@@ -16,13 +17,14 @@ const DyEFarmacyApp = () => {
 
     return (
         <div className="">
-            <Header isLogged={isLogged} />
+            <Header isLogged={isLogged} userData={userData} />
             <Routes>
                 <Route path="/" element={<Home isLogged={isLogged} />}></Route>
                 <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                 <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                 <Route path="/perfil" element={<PerfilUsuario setIsLogged={setIsLogged} userData={userData} />}></Route>
                 <Route path="/producto/:id" element={<Producto isLogged={isLogged} />}></Route>
+                <Route path="/cesta/:id" element={<Cesta />}></Route>
             </Routes>
             <HelpButton />
             <Footer />
