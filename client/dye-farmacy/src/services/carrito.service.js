@@ -7,8 +7,15 @@ const getCarritoByUserId = async (id) => {
     return carritoItems;
 };
 
+const addCarritoItemToCarrito = async (idUsuario, idProducto, cantidad) => {
+    const response = await axios.post(`${API_URL}/carrito/${idUsuario}/${idProducto}/${cantidad}`);
+
+    return response;
+};
+
 const CarritoServices = {
     getCarritoByUserId,
+    addCarritoItemToCarrito,
 };
 
 export default CarritoServices;

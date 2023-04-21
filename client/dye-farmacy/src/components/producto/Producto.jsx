@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
+import CarritoServices from "../../services/carrito.service";
 
-const Producto = ({ isLogged }) => {
-    const { id } = useParams();
+const Producto = ({ isLogged, userData }) => {
+    const idUsuario = userData?.idUsuario;
+    const { idProducto } = useParams();
     const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1);
 
@@ -12,10 +14,10 @@ const Producto = ({ isLogged }) => {
     const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const iconCarrito = require("../../assets/dark/shopping-cart.png");
     useEffect(() => {
-        if (id) {
+        if (idProducto) {
             async function retriveProduct() {
                 try {
-                    const productData = await ProductoServices.getProductById(id);
+                    const productData = await ProductoServices.getProductById(idProducto);
                     setProducto(productData);
                 } catch (error) {
                     console.log(error);
@@ -23,11 +25,13 @@ const Producto = ({ isLogged }) => {
             }
             retriveProduct();
         }
-    }, [id]);
+    }, [idProducto]);
 
     const handleOnClickAnadirCarrito = () => {
         if (isLogged) {
-            console.log("Añadiendo producto al carrito");
+            CarritoServices.addCarritoItemToCarrito(idUsuario, idProducto, quantity);
+            Swal.fire("Producto añadido a la cesta", "", "success");
+            navigate("/");
         } else {
             Swal.fire("Error", "Debe iniciar sesión antes de añadir productos al carrito", "info");
             navigate("/login");

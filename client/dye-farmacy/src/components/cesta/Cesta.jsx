@@ -32,29 +32,29 @@ const Cesta = () => {
     return (
         <>
             <h1 className="text-center">Carrito</h1>
+            <button onClick={() => console.log(carritoItems)}>CarritoItems</button>
+            <button onClick={() => console.log(productsInfo)}>ProductsInfo</button>
             <div className="productCardContainer">
                 {carritoItems.map((carritoItem, index) => {
-                    console.log("si");
+                    // console.log("si");
                     return (
-                        <>
-                            <div className="productCard" style={{ width: "20rem" }} key={index}>
-                                <div className="productContent">
-                                    <div style={{ cursor: "pointer" }}>
-                                        <img className="card-img-top" src={iconPorgress} alt="" />
-                                        <div className="card-body">
-                                            {/* <h3 className="card-title">{productInfo?.nombre}</h3>
+                        <div className="productCard" style={{ width: "20rem" }} key={index}>
+                            <div className="productContent">
+                                <div style={{ cursor: "pointer" }}>
+                                    <img className="card-img-top" src={iconPorgress} alt="" />
+                                    <div className="card-body">
+                                        {/* <h3 className="card-title">{productInfo?.nombre}</h3>
                                             <h5 className="card-text">{productInfo?.precio}</h5> */}
-                                            <h3 className="card-title">Si</h3>
-                                            <h5 className="card-text">Si</h5>
-                                        </div>
-
-                                        <button type="submit" className="btn btn-primary mt-4 w-100">
-                                            <b>Quitar del carrito</b>
-                                        </button>
+                                        <h3 className="card-title">Si</h3>
+                                        <h5 className="card-text">Si</h5>
                                     </div>
+
+                                    <button type="submit" className="btn btn-primary mt-4 w-100">
+                                        <b>Quitar del carrito</b>
+                                    </button>
                                 </div>
                             </div>
-                        </>
+                        </div>
                     );
                 })}
             </div>

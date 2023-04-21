@@ -23,7 +23,7 @@ const DyEFarmacyApp = () => {
                 <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                 <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                 <Route path="/perfil" element={<PerfilUsuario setIsLogged={setIsLogged} userData={userData} />}></Route>
-                <Route path="/producto/:id" element={<Producto isLogged={isLogged} />}></Route>
+                <Route path="/producto/:idProducto" element={<Producto isLogged={isLogged} userData={userData} />}></Route>
                 <Route path="/cesta/:id" element={<Cesta />}></Route>
             </Routes>
             <HelpButton />
