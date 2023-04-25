@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Header = ({ isLogged, userData }) => {
+const Header = ({ isLogged, userData, precioTotalCarrito }) => {
     const logoClaro = require("../../assets/logos/Logo_claro.png");
 
     const iconoLuna = require("../../assets/dark/night-mode.png");
@@ -28,12 +28,16 @@ const Header = ({ isLogged, userData }) => {
                     )}
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         {isLogged ? (
-                            <Link to={`/cesta/${userData?.idUsuario}`}>
+                            <Link to={`/cesta/${userData?.idUsuario}`} style={{ textDecoration: "none", color: "black" }}>
                                 <img src={iconoCesta} alt="logo" className="botonImage" />
-                                <span style={{ marginLeft: 5 }}>0,00€</span>
+                                <span style={{ marginLeft: 5 }}>{precioTotalCarrito}€</span>
                             </Link>
                         ) : (
-                            <Link to={"/login"} onClick={() => Swal.fire("Error", "Debe iniciar sesión antes de acceder al carrito", "info")}>
+                            <Link
+                                to={"/login"}
+                                style={{ textDecoration: "none", color: "black" }}
+                                onClick={() => Swal.fire("Error", "Debe iniciar sesión antes de acceder al carrito", "info")}
+                            >
                                 <img src={iconoCesta} alt="logo" className="botonImage" />
                                 <span style={{ marginLeft: 5 }}>0,00€</span>
                             </Link>

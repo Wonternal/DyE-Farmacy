@@ -5,7 +5,7 @@ import UsuarioServices from "../../services/usuario.service";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Login = ({setIsLogged, setUserData}) => {
+const Login = ({ setIsLogged, setUserData }) => {
     const iconoLogin = require("../../assets/light/user (2).png");
 
     const navigate = useNavigate();
@@ -33,8 +33,10 @@ const Login = ({setIsLogged, setUserData}) => {
                     Swal.fire("Error en el login", `El e-mail o la contraseña no son correctos`, "error");
                     return;
                 }
-                response.json().then((response) => setUserData(response));
-                setIsLogged(true)
+                response.json().then((response) => {
+                    setUserData(response);
+                });
+                setIsLogged(true);
                 Swal.fire("Inicio de sesión realizado correctamente", "", "success");
                 navigate("/");
             } catch (error) {

@@ -13,9 +13,14 @@ const addCarritoItemToCarrito = async (idUsuario, idProducto, cantidad) => {
     return response;
 };
 
+const deleteCarritoItemFromCarrito = async (idCarrito, idProducto) => {
+    const response = await axios.delete(`${API_URL}/carrito/${idCarrito}/${idProducto}`);
+};
+
 const CarritoServices = {
     getCarritoByUserId,
     addCarritoItemToCarrito,
+    deleteCarritoItemFromCarrito,
 };
 
 export default CarritoServices;

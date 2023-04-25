@@ -14,17 +14,23 @@ import Cesta from "../cesta/Cesta";
 const DyEFarmacyApp = () => {
     const [isLogged, setIsLogged] = useState(false);
     const [userData, setUserData] = useState();
+    const [precioTotalCarrito, setPrecioTotalCarrito] = useState(0.0);
 
     return (
         <div className="">
-            <Header isLogged={isLogged} userData={userData} />
+            <Header isLogged={isLogged} userData={userData} precioTotalCarrito={precioTotalCarrito} />
             <Routes>
                 <Route path="/" element={<Home isLogged={isLogged} />}></Route>
                 <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                 <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
-                <Route path="/perfil" element={<PerfilUsuario setIsLogged={setIsLogged} userData={userData} />}></Route>
+                <Route
+                    path="/perfil"
+                    element={
+                        <PerfilUsuario setIsLogged={setIsLogged} userData={userData} setUserData={setUserData} setPrecioTotalCarrito={setPrecioTotalCarrito} />
+                    }
+                ></Route>
                 <Route path="/producto/:idProducto" element={<Producto isLogged={isLogged} userData={userData} />}></Route>
-                <Route path="/cesta/:id" element={<Cesta />}></Route>
+                <Route path="/cesta/:id" element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} />}></Route>
             </Routes>
             <HelpButton />
             <Footer />
