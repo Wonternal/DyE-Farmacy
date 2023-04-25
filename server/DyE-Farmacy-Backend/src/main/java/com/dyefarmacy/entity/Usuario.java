@@ -44,6 +44,21 @@ public class Usuario implements Serializable {
 
 	@Column
 	private Integer rol;
+	
+	@Column(unique=true, nullable = true)
+	private String telefono;
+
+	@Column(nullable = true)
+	private String direccion;
+
+	@Column(nullable = true)
+	private Integer codigoPostal;
+	
+	@Column(nullable = true)
+	private String ciudad;
+
+	@Column(nullable = true)
+	private String pais;
 
 	@JsonIgnore
 	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
@@ -68,6 +83,24 @@ public class Usuario implements Serializable {
 		this.carrito = carrito;
 		this.pedidos = pedidos;
 	}
+	
+	
+
+	public Usuario(String nombre, String apellidos, String email, String password, Integer rol, String telefono,
+			String direccion, Integer codigoPostal, String ciudad, String pais, Carrito carrito, Set<Pedido> pedidos) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.password = password;
+		this.rol = rol;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.codigoPostal = codigoPostal;
+		this.ciudad = ciudad;
+		this.pais = pais;
+		this.carrito = carrito;
+		this.pedidos = pedidos;
+	}
 
 	public Usuario(Long idUsuario, String nombre, String apellidos, String email, String password, Integer rol,
 			Carrito carrito, Set<Pedido> pedidos) {
@@ -77,6 +110,24 @@ public class Usuario implements Serializable {
 		this.email = email;
 		this.password = password;
 		this.rol = rol;
+		this.carrito = carrito;
+		this.pedidos = pedidos;
+	}
+
+	public Usuario(Long idUsuario, String nombre, String apellidos, String email, String password, Integer rol,
+			String telefono, String direccion, Integer codigoPostal, String ciudad, String pais, Carrito carrito,
+			Set<Pedido> pedidos) {
+		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.password = password;
+		this.rol = rol;
+		this.telefono = telefono;
+		this.direccion = direccion;
+		this.codigoPostal = codigoPostal;
+		this.ciudad = ciudad;
+		this.pais = pais;
 		this.carrito = carrito;
 		this.pedidos = pedidos;
 	}
@@ -145,4 +196,44 @@ public class Usuario implements Serializable {
 		this.pedidos = pedidos;
 	}
 
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public Integer getCodigoPostal() {
+		return codigoPostal;
+	}
+
+	public void setCodigoPostal(Integer codigoPostal) {
+		this.codigoPostal = codigoPostal;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+	
 }

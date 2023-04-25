@@ -66,6 +66,11 @@ public class UsuarioService {
 			_usuario.setEmail(usuario.getEmail());
 			_usuario.setPassword(usuario.getPassword());
 			_usuario.setRol(usuario.getRol());
+			_usuario.setTelefono(usuario.getTelefono());
+			_usuario.setDireccion(usuario.getDireccion());
+			_usuario.setCodigoPostal(usuario.getCodigoPostal());
+			_usuario.setCiudad(usuario.getCiudad());
+			_usuario.setPais(usuario.getPais());
 			return usuarioRepository.save(_usuario);
 		}
 		return null;
