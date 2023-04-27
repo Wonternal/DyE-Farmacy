@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import CarritoServices from "../../services/carrito.service";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
 
@@ -90,10 +90,24 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                     );
                 })}
             </div>
-            <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito}€</h1>
-            <button type="button" className="btn btn-primary mt-4 w-200">
-                <b>Realizar pedido</b>
-            </button>
+            {
+                precioTotalCarrito <= 0 ?
+                    <div className="carrito-vacio">
+                        <p>El carrito está vacío</p>
+                    </div> :
+                    <>
+                        <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito}€</h1>
+                        <div className="container">
+                            <div className="carritoBtn">
+                                <Link to={"/pedido"} className="registerLink">
+                                    <button type="button" className="btn btn-primary mt-4 w-100">
+                                        <b>Realizar pedido</b>
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                    </>
+            }
         </>
     );
 };

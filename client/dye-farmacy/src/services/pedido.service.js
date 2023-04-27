@@ -1,1 +1,27 @@
 import { API_URL } from "./apiUrl";
+
+const addPedido = async (data) => {
+    try {
+        console.log(data.idUsuario);
+        const response = await fetch(`${API_URL}/pedido`, {
+            method: "POST",
+            body: JSON.stringify({
+                idUsuario: data.idUsuario,
+                precioTotal: data.precioTotal,
+                direccion: data.direccion,
+            }),
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
+        return response;
+    } catch (error) {
+        console.log("Cascaso catch del service");
+    }
+};
+
+const PedidoService = {
+    addPedido
+};
+
+export default PedidoService;

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dyefarmacy.entity.Pedido;
+import com.dyefarmacy.service.CarritoService;
 import com.dyefarmacy.service.PedidoService;
 
 @CrossOrigin(origins = "*")
@@ -22,6 +23,9 @@ public class PedidoController {
 	
 	@Autowired
 	PedidoService pedidoService;
+	
+	@Autowired
+	CarritoService carritoService;
 	
 	@GetMapping("/pedido")
 	public List<Pedido> getAllPedidos() {
@@ -35,6 +39,7 @@ public class PedidoController {
 	
 	@PostMapping("/pedido")
 	public Integer addPedido(@RequestBody Pedido pedido) {
+		carritoService.deleteAllItemsByCarritoId(pedido.getIdUsuario());
 		return pedidoService.addPedido(pedido);
 	}
 
