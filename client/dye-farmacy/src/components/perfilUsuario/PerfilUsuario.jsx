@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -10,10 +9,6 @@ const PerfilUsuario = ({ setIsLogged, userData, setUserData, setPrecioTotalCarri
     const [verPassword, setVerPassword] = useState(false);
 
     const navigate = useNavigate();
-
-    useEffect(() => {
-        console.log(userData);
-    }, [userData]);
 
     const retrievePassword = () => {
         let passwordOcutlo = "";
