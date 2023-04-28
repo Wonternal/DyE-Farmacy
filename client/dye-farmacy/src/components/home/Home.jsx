@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Carousel from "react-bootstrap/Carousel";
 
-const Home = ({ isLogged }) => {
+const Home = ({ isLogged, userData, setIsAdmin}) => {
     const [productos, setProductos] = useState([]);
     const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const carouselImg1 = require("../../assets/carousel/carousel1.jpg");
@@ -21,12 +21,17 @@ const Home = ({ isLogged }) => {
             try {
                 const productData = await ProductoServices.getAllProduct();
                 setProductos(productData);
+                if (userData.rol === 1) {
+                    setIsAdmin(true);
+                }else{
+                    setIsAdmin(false);
+                }
             } catch (error) {
                 console.log(error);
             }
         }
         retriveProductos();
-    }, []);
+    }, [userData]);
     const linkToProduct = (id) => {
         navigate(`/producto/${id}`);
     };
