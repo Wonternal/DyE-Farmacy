@@ -30,7 +30,6 @@ const Header = ({ isLogged, userData, precioTotalCarrito }) => {
                         {isLogged ? (
                             <Link to={`/cesta/${userData?.idUsuario}`} style={{ textDecoration: "none", color: "black" }}>
                                 <img src={iconoCesta} alt="logo" className="botonImage" />
-                                <span style={{ marginLeft: 5 }}>{precioTotalCarrito}€</span>
                             </Link>
                         ) : (
                             <Link
@@ -39,7 +38,6 @@ const Header = ({ isLogged, userData, precioTotalCarrito }) => {
                                 onClick={() => Swal.fire("Error", "Debe iniciar sesión antes de acceder al carrito", "info")}
                             >
                                 <img src={iconoCesta} alt="logo" className="botonImage" />
-                                <span style={{ marginLeft: 5 }}>0,00€</span>
                             </Link>
                         )}
                     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import CarritoServices from "../../services/carrito.service";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
 
@@ -10,6 +10,7 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
     const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const { id } = useParams();
     const [carritoItems, setCarritoItems] = useState([]);
+    const iconoCestaEmoty = require("../../assets/dark/carrito-vacio.png");
 
     useEffect(() => {
         async function retriveCarritoItems() {
@@ -63,7 +64,6 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
 
     return (
         <>
-            <h1 className="text-center">Carrito</h1>
             <div className="productCardContainer">
                 {carritoItems.map((carritoItem, index) => {
                     return (
@@ -80,7 +80,7 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                                     <button
                                         type="button"
                                         onClick={() => handleOnClickEliminarProductoCarrito(carritoItem.idCarrito, carritoItem.idProducto)}
-                                        className="btn btn-primary mt-4 w-100"
+                                        className="btn btn-primary mt-4 mb-4 w-100"
                                     >
                                         <b>Eliminar de la cesta</b>
                                     </button>
@@ -90,10 +90,24 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                     );
                 })}
             </div>
-            <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito}€</h1>
-            <button type="button" className="btn btn-primary mt-4 w-200">
-                <b>Realizar pedido</b>
-            </button>
+            {
+                precioTotalCarrito <= 0 ?
+                    <div className="carrito-vacio">
+                        <img src={iconoCestaEmoty} style={{ height: "700px"}} alt="" />
+                    </div> :
+                    <>
+                        <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito}€</h1>
+                        <div className="container">
+                            <div className="carritoBtn">
+                                <Link to={"/envio"} className="registerLink">
+                                    <button type="button" className="btn btn-primary mb-4 w-100">
+                                        <b>Realizar pedido</b>
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+                    </>
+            }
         </>
     );
 };

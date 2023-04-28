@@ -10,6 +10,8 @@ import HelpButton from "../helpButton/HelpButton";
 import PerfilUsuario from "../perfilUsuario/PerfilUsuario";
 import Producto from "../producto/Producto";
 import Cesta from "../cesta/Cesta";
+import FormularioPago from "../formularioPago/FormularioPago";
+import FormularioPagoTarjeta from "../formularioPagoTarjeta/FormularioPagoTarjeta";
 
 const DyEFarmacyApp = () => {
     const [isLogged, setIsLogged] = useState(false);
@@ -31,6 +33,8 @@ const DyEFarmacyApp = () => {
                 ></Route>
                 <Route path="/producto/:idProducto" element={<Producto isLogged={isLogged} userData={userData} />}></Route>
                 <Route path="/cesta/:id" element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} />}></Route>
+                <Route path="/envio" element={<FormularioPago precioTotalCarrito={precioTotalCarrito} userData={userData} setUserData={setUserData}/>}></Route>
+                <Route path="/cofirmarPago" element={<FormularioPagoTarjeta precioTotalCarrito={precioTotalCarrito} userData={userData}/>}></Route>
             </Routes>
             <HelpButton />
             <Footer />
