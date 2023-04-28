@@ -45,7 +45,7 @@ const Producto = ({ isLogged, userData }) => {
     return (
         <>
             <div className="productContainertId">
-                <img style={{ width: 450 }} src={iconPorgress} alt="" />
+                <img style={{ width: 450, height: 450 }} src={iconPorgress} alt="" />
                 <div style={{ marginLeft: 20 }}>
                     <h1>
                         <b>{producto?.nombre}</b>

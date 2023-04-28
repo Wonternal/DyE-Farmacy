@@ -46,9 +46,6 @@ const Home = ({ isLogged }) => {
                     <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            <h1 className="text-center mt-2">
-                <u>Productos</u>
-            </h1>
             <div className="productCardContainer">
                 {productos.map((producto) => {
                     return (
@@ -60,7 +57,6 @@ const Home = ({ isLogged }) => {
                                         <h3 className="card-title">{producto.nombre}</h3>
                                         <h5 className="card-text">{producto.precio} €</h5>
                                     </div>
-
                                     <button type="submit" className="btn btn-primary mt-4 w-100">
                                         <b>COMPRAR</b>
                                     </button>

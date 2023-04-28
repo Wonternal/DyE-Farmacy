@@ -10,6 +10,7 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
     const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const { id } = useParams();
     const [carritoItems, setCarritoItems] = useState([]);
+    const iconoCestaEmoty = require("../../assets/dark/carrito-vacio.png");
 
     useEffect(() => {
         async function retriveCarritoItems() {
@@ -63,7 +64,6 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
 
     return (
         <>
-            <h1 className="text-center">Carrito</h1>
             <div className="productCardContainer">
                 {carritoItems.map((carritoItem, index) => {
                     return (
@@ -80,7 +80,7 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                                     <button
                                         type="button"
                                         onClick={() => handleOnClickEliminarProductoCarrito(carritoItem.idCarrito, carritoItem.idProducto)}
-                                        className="btn btn-primary mt-4 w-100"
+                                        className="btn btn-primary mt-4 mb-4 w-100"
                                     >
                                         <b>Eliminar de la cesta</b>
                                     </button>
@@ -93,14 +93,14 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
             {
                 precioTotalCarrito <= 0 ?
                     <div className="carrito-vacio">
-                        <p>El carrito está vacío</p>
+                        <img src={iconoCestaEmoty} style={{ height: "700px"}} alt="" />
                     </div> :
                     <>
                         <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito}€</h1>
                         <div className="container">
                             <div className="carritoBtn">
-                                <Link to={"/pedido"} className="registerLink">
-                                    <button type="button" className="btn btn-primary mt-4 w-100">
+                                <Link to={"/envio"} className="registerLink">
+                                    <button type="button" className="btn btn-primary mb-4 w-100">
                                         <b>Realizar pedido</b>
                                     </button>
                                 </Link>

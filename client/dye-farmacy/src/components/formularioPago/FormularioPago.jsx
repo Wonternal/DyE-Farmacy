@@ -1,29 +1,14 @@
 import React, {useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import PedidoService from "../../services/pedido.service";
 import UsuarioServices from "../../services/usuario.service";
-import Swal from "sweetalert2";
 
 const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
 
-    const initialInputsData = {
-        idUsuario: userData.idUsuario,
-        precioTotal: precioTotalCarrito,
-        direccion: "",
-    };
-
     const navigate = useNavigate();
 
-    const [inputsDataPedido, setinputsDataPedido] = useState(initialInputsData);
 
     const [inputsDataUser, setinputsDataUser] = useState(userData);
 
-    const handleOnChangePedido = (e) => {
-        setinputsDataPedido({
-            ...inputsDataPedido,
-            [e.target.name]: e.target.value,
-        });
-    };
 
     const handleOnChangeUser = (e) => {
         setinputsDataUser({
@@ -36,17 +21,9 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
         e.preventDefault();
         async function insertPedido() {
             try {
-                const responsePedido = await PedidoService.addPedido(inputsDataPedido);
                 await UsuarioServices.editUser(inputsDataUser)
                 setUserData(await UsuarioServices.getUserById(userData.idUsuario));
-                if (responsePedido.status !== 200) {
-                    Swal.fire("Error en el registro", "" , "error");
-                    return;
-                }else{
-                    Swal.fire("Pedido realizado con éxtio", "" , "success");
-                    navigate("/");
-                }
-                responsePedido.json().then((response) => setinputsDataPedido(response));
+                navigate("/cofirmarPago");
             } catch (error) {
                 console.log(error);
             }
@@ -63,7 +40,7 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                             TELÉFONO
                         </label>
                         <div>
-                            <input id="telefono" name="telefono" type="text" placeholder="" required="" className="formularioLoginInput" onChange={handleOnChangeUser}
+                            <input id="telefono" name="telefono" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeUser}
                                 value={inputsDataUser.telefono} />
                         </div>
                     </div>
@@ -78,10 +55,10 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                                 name="direccion"
                                 type="text"
                                 placeholder=""
-                                required=""
+                                required
                                 className="formularioLoginInput"
-                                onChange={handleOnChangePedido}
-                                value={inputsDataPedido.direccion}
+                                onChange={handleOnChangeUser}
+                                value={inputsDataUser.direccion}
                             />
                         </div>
                     </div>
@@ -91,7 +68,7 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                             CÓDIGO POSTAL
                         </label>
                         <div>
-                            <input id="codigoPostal" name="codigoPostal" type="text" placeholder="" required="" className="formularioLoginInput" onChange={handleOnChangeUser}
+                            <input id="codigoPostal" name="codigoPostal" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeUser}
                                 value={inputsDataUser.codigoPostal}/>
                         </div>
                     </div>
@@ -101,7 +78,7 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                             CIUDAD
                         </label>
                         <div>
-                            <input id="ciudad" name="ciudad" type="text" placeholder="" required="" className="formularioLoginInput" onChange={handleOnChangeUser}
+                            <input id="ciudad" name="ciudad" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeUser}
                                 value={inputsDataUser.ciudad}/>
                         </div>
                     </div>
@@ -111,7 +88,7 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                             PAÍS
                         </label>
                         <div>
-                            <input id="pais" name="pais" type="text" placeholder="" required="" className="formularioLoginInput" onChange={handleOnChangeUser}
+                            <input id="pais" name="pais" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeUser}
                                 value={inputsDataUser.pais}/>
                         </div>
                     </div>

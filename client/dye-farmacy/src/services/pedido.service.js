@@ -2,7 +2,6 @@ import { API_URL } from "./apiUrl";
 
 const addPedido = async (data) => {
     try {
-        console.log(data.idUsuario);
         const response = await fetch(`${API_URL}/pedido`, {
             method: "POST",
             body: JSON.stringify({
