@@ -21,6 +21,7 @@ import AdminProductos from "../adminProductos/AdminProductos";
 import AdminProductInfo from "../adminProductInfo/AdminProductInfo";
 import AdminEdit from "../adminEdit/AdminEdit";
 import AdminAnadirProducto from "../adminAnadirProducto/AdminAnadirProducto";
+import AdminCestaClienteUser from "../adminCestaClienteUser/AdminCestaClienteUser";
 
 const DyEFarmacyApp = () => {
     const [isLogged, setIsLogged] = useState(false);
@@ -47,7 +48,9 @@ const DyEFarmacyApp = () => {
                             <Route path="/adminProductos" element={<AdminProductos isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} />}></Route>
                             <Route path="/adminProducto/:idProducto" element={<AdminProductInfo isLogged={isLogged} userData={userData} />}></Route>
                             <Route path="/adminEditProducto/:idProducto" element={<AdminEdit isLogged={isLogged} userData={userData} />}></Route>
-                            <Route path="/AdminAñadirProducto/" element={<AdminAnadirProducto isLogged={isLogged} userData={userData} />}></Route>
+                            <Route path="/adminAñadirProducto/" element={<AdminAnadirProducto isLogged={isLogged} userData={userData} />}></Route>
+                            <Route path="/adminClients/" element={<AdminClients isLogged={isLogged} userData={userData} />}></Route>
+                            <Route path="/cesta/:id" element={<AdminCestaClienteUser precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} />}></Route>
                         </>
                         :
                         <>

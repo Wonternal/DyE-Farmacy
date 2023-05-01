@@ -75,11 +75,18 @@ const editUser = async (data) => {
     return user;
 };
 
+const getAllUser = async () => {
+    const response = await axios.get(`${API_URL}/usuario`);
+    const usuario = response.data;
+    return usuario;
+  };
+
 const UsuarioServices = {
     registerUser,
     loginUser,
     editUser,
-    getUserById
+    getUserById,
+    getAllUser
 };
 
 export default UsuarioServices;

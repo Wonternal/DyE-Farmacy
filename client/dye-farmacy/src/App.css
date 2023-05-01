@@ -129,6 +129,14 @@
     padding: 15px;
     font-size: 20px;
 }
+.tableAdminPedido{
+    width: 70%;
+    margin: 50px;
+    padding: 20px;
+}
+.table{
+    background-color: var(--grisClaroFondoCards);
+}
 .adminBtnEliminar{
     --bs-btn-color: #fff;
     --bs-btn-bg: #0d6efd;

@@ -1,5 +1,7 @@
 import { API_URL } from "./apiUrl";
 
+import axios from 'axios';
+
 const addPedido = async (data) => {
     try {
         const response = await fetch(`${API_URL}/pedido`, {
@@ -19,8 +21,15 @@ const addPedido = async (data) => {
     }
 };
 
+const getAllPedidos = async () => {
+    const response = await axios.get(`${API_URL}/pedido`);
+    const pedido = response.data;
+    return pedido;
+  };
+
 const PedidoService = {
-    addPedido
+    addPedido,
+    getAllPedidos
 };
 
 export default PedidoService;

@@ -49,7 +49,7 @@ const AdminProductos = ({ userData }) => {
     })
 
     const addProdct = (() => {
-        navigate(`/AdminAñadirProducto`);
+        navigate(`/adminAñadirProducto`);
     })
     return (
         <>
