@@ -18,11 +18,15 @@ import AdminClients from "../adminClientes/AdminClients";
 import AdminEstadisticas from "../adminEstadisticas/AdminEstadisticas";
 import AdminPedidos from "../adminPedidos/AdminPedidos";
 import AdminProductos from "../adminProductos/AdminProductos";
+import AdminProductInfo from "../adminProductInfo/AdminProductInfo";
+import AdminEdit from "../adminEdit/AdminEdit";
+import AdminAnadirProducto from "../adminAnadirProducto/AdminAnadirProducto";
 
 const DyEFarmacyApp = () => {
     const [isLogged, setIsLogged] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [userData, setUserData] = useState();
+    const [productData, setProductData] = useState();
     const [precioTotalCarrito, setPrecioTotalCarrito] = useState(0.0);
 
     return (
@@ -36,15 +40,18 @@ const DyEFarmacyApp = () => {
                     isAdmin
                         ?
                         <>
-                            <Route path="/" element={<AdminHome isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} />}></Route>
+                            <Route path="/" element={<AdminHome isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} productData={productData} setProductData={setProductData} />}></Route>
                             <Route path="/adminClientes" element={<AdminClients isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} />}></Route>
                             <Route path="/adminEstadisticas" element={<AdminEstadisticas isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} />}></Route>
                             <Route path="/adminPedidos" element={<AdminPedidos isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} />}></Route>
                             <Route path="/adminProductos" element={<AdminProductos isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} />}></Route>
+                            <Route path="/adminProducto/:idProducto" element={<AdminProductInfo isLogged={isLogged} userData={userData} />}></Route>
+                            <Route path="/adminEditProducto/:idProducto" element={<AdminEdit isLogged={isLogged} userData={userData} />}></Route>
+                            <Route path="/AdminAñadirProducto/" element={<AdminAnadirProducto isLogged={isLogged} userData={userData} />}></Route>
                         </>
                         :
                         <>
-                            <Route path="/" element={<Home isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} />}></Route>
+                            <Route path="/" element={<Home isLogged={isLogged} userData={userData} setIsAdmin={setIsAdmin} setProductData={setProductData} />}></Route>
                             <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                             <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                             <Route

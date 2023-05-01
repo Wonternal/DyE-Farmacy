@@ -1,7 +1,14 @@
 import React from "react";
 
-const AdminPedidos = () => {
-    return <div>AdminPedidos</div>;
+
+const AdminPedidos = ({ userData }) => {
+
+
+    return (
+        <>
+        AdminPedidos
+        </>
+    );
 };
 
 export default AdminPedidos;

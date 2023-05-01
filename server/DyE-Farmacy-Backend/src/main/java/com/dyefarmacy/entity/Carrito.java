@@ -38,8 +38,6 @@ public class Carrito implements Serializable {
 	@JoinColumn(name = "idCarrito", referencedColumnName = "idCarrito")
 	private Set<CarritoItem> carritoItems = new HashSet<CarritoItem>();
 	
-	
-
 	public Carrito() {
 	}
 
