@@ -26,7 +26,7 @@ const AdminHome = () => {
                     </Link>
                 </div>
                 <div>
-                <Link to={"/adminProductos"} style={{textDecoration : "none", color : "black"}}>
+                <Link to={"/adminClients"} style={{textDecoration : "none", color : "black"}}>
                         <div className="containarImgTextAdmin">   
                             <img src={clientes} alt="logo" className="imgAdmin" />
                             <h1>CLIENTES</h1>
