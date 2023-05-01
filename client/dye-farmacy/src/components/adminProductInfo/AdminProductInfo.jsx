@@ -4,7 +4,7 @@ import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
 import CarritoServices from "../../services/carrito.service";
 
-const Producto = ({ isLogged, userData }) => {
+const AdminProductInfo = ({userData}) => {
     const idUsuario = userData?.idUsuario;
     const { idProducto } = useParams();
     const navigate = useNavigate();
@@ -27,21 +27,6 @@ const Producto = ({ isLogged, userData }) => {
         }
     }, [idProducto]);
 
-    const handleOnClickAnadirCarrito = () => {
-        if (isLogged) {
-            CarritoServices.addCarritoItemToCarrito(idUsuario, idProducto, quantity);
-            Swal.fire("Producto añadido a la cesta", "", "success");
-            navigate("/");
-        } else {
-            Swal.fire("Error", "Debe iniciar sesión antes de añadir productos al carrito", "info");
-            navigate("/login");
-        }
-    };
-
-    const handleOnChangeQuantity = (e) => {
-        setQuantity(e.target.value);
-    };
-
     return (
         <>
             <div className="productContainertId">
@@ -56,23 +41,10 @@ const Producto = ({ isLogged, userData }) => {
                     <p>{producto?.descripcion}</p>
                     <hr />
                     <p>{producto?.precio} € / unidad</p>
-                    <div className="containerCarrito">
-                        <input
-                            className="inputCarritoContainer"
-                            type="number"
-                            name="quantity"
-                            value={quantity}
-                            onChange={(e) => e.target.value > 0 && e.target.value < 100 && handleOnChangeQuantity(e)}
-                        ></input>
-                        <button className="textoCarritoContainer" onClick={handleOnClickAnadirCarrito}>
-                            <img style={{ width: 20, marginRight: 10 }} src={iconCarrito} alt="" />
-                            <span className="textoCarrito">AÑADIR AL CARRITO</span>
-                        </button>
-                    </div>
                 </div>
             </div>
         </>
     );
 };
 
-export default Producto;
+export default AdminProductInfo;
