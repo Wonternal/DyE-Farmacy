@@ -2,6 +2,7 @@ import React, {useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
+import UsuarioServices from "../../services/usuario.service";
 
 const initialState = {
     idProducto: null,
@@ -9,7 +10,8 @@ const initialState = {
     descripcion: "",
     cantidad: "",
     precio: "",
-    categoria: ""
+    categoria: "",
+    foto : ""
 }
 const AdminEdit = () => {
 
@@ -18,6 +20,8 @@ const AdminEdit = () => {
     const [productos, setProductos] = useState(initialState);
 
     const navigate = useNavigate();
+
+    let selectedPhoto;
 
     useEffect(() => {
         async function retriveProductos() {
@@ -45,14 +49,32 @@ const AdminEdit = () => {
             try {
                 await ProductoServices.editProduct(productos)
                 Swal.fire("Producto actualizado con éxito", "", "success")
-                console.log(productos);
                 navigate("/adminProductos");
             } catch (error) {
                 console.log(error);
             }
         }
         insertProduct();
+        uploadPhoto();
     };
+
+    const selectPhoto = (e)  =>{ 
+        selectedPhoto = e.target.files[0];
+        if (selectedPhoto && selectedPhoto.type.indexOf('image') < 0) {
+          Swal.fire('Error al seleccionar imagen:', 'El archivo debe ser del tipo imagen', 'error');
+          selectedPhoto = null;
+        }
+      }
+    
+      const uploadPhoto = ()  => {
+        if (!selectedPhoto) {
+          Swal.fire('Error Upload: ', 'Debes seleccionar una foto', 'error');
+        } else {
+            const response = UsuarioServices.uploadPhoto(selectedPhoto, idProducto)
+            setProductos(response);
+            Swal.fire("Producto añadido con éxito", "", "success");
+        }
+      }
 
     return (
         <>
@@ -113,6 +135,11 @@ const AdminEdit = () => {
                             <input id="categoria" name="categoria" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
                                 value={productos.categoria}/>
                         </div>
+                    </div>
+
+                    <div className="mb-3">
+                        <label htmlFor="formFile" className="form-label">Default file input example</label>
+                        <input className="form-control" type="file" id="formFile" onChange={(e) => selectPhoto(e)}/>
                     </div>
                     <div>
                         <button type="submit" className="btn btn-primary mt-4 w-100">

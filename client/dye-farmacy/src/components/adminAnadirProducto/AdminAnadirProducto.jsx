@@ -1,7 +1,8 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
+import UsuarioServices from "../../services/usuario.service";
 
 const initialState = {
     idProducto: null,
@@ -13,13 +14,14 @@ const initialState = {
 }
 
 const AdminAnadirProducto = () => {
-   
+
 
     const [productos, setProductos] = useState(initialState);
 
     const navigate = useNavigate();
 
-   
+
+
     const handleOnChangeProduct = (e) => {
         setProductos({
             ...productos,
@@ -80,7 +82,7 @@ const AdminAnadirProducto = () => {
                         </label>
                         <div>
                             <input id="cantidad" name="cantidad" type="number" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
-                                value={productos.cantidad}/>
+                                value={productos.cantidad} />
                         </div>
                     </div>
 
@@ -90,7 +92,7 @@ const AdminAnadirProducto = () => {
                         </label>
                         <div>
                             <input id="precio" name="precio" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
-                                value={productos.precio}/>
+                                value={productos.precio} />
                         </div>
                     </div>
                     <div>
@@ -99,7 +101,7 @@ const AdminAnadirProducto = () => {
                         </label>
                         <div>
                             <input id="categoria" name="categoria" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
-                                value={productos.categoria}/>
+                                value={productos.categoria} />
                         </div>
                     </div>
                     <div>
