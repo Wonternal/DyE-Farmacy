@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Carousel from "react-bootstrap/Carousel";
+import UsuarioServices from "../../services/usuario.service";
 
-const Home = ({ isLogged, userData, setIsAdmin}) => {
+const Home = ({ isLogged, userData, setIsAdmin, setUserData, setIsLogged }) => {
     const [productos, setProductos] = useState([]);
     const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const carouselImg1 = require("../../assets/carousel/carousel1.jpg");
@@ -21,17 +22,26 @@ const Home = ({ isLogged, userData, setIsAdmin}) => {
             try {
                 const productData = await ProductoServices.getAllProduct();
                 setProductos(productData);
-                if (userData.rol === 1) {
-                    setIsAdmin(true);
-                }else{
-                    setIsAdmin(false);
+                let idUsuario = localStorage.getItem("idUsuario");
+
+                if (idUsuario) {
+                    const response = await UsuarioServices.getUserById(idUsuario);
+
+                    setIsLogged(true);
+
+                    setUserData(response);
+                    if (response.rol === 1) {
+                        setIsAdmin(true);
+                    } else {
+                        setIsAdmin(false);
+                    }
                 }
             } catch (error) {
                 console.log(error);
             }
         }
         retriveProductos();
-    }, [userData]);
+    }, []);
     const linkToProduct = (id) => {
         navigate(`/producto/${id}`);
     };

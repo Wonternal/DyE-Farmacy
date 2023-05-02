@@ -37,9 +37,13 @@ public class PedidoController {
 		return pedidoService.getAllPedidosByUserId(id);
 	}
 	
+	@GetMapping("/pedido/{id}/productos")
+	public Pedido getPedidoById(@PathVariable Long id) {
+		return pedidoService.getPedidoById(id);
+	}
+	
 	@PostMapping("/pedido")
 	public Integer addPedido(@RequestBody Pedido pedido) {
-		carritoService.deleteAllItemsByCarritoId(pedido.getIdUsuario());
 		return pedidoService.addPedido(pedido);
 	}
 

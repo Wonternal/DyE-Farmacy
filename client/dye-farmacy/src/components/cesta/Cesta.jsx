@@ -90,24 +90,24 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                     );
                 })}
             </div>
-            {
-                precioTotalCarrito <= 0 ?
-                    <div className="carrito-vacio">
-                        <img src={iconoCestaEmoty} style={{ height: "700px"}} alt="" />
-                    </div> :
-                    <>
-                        <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito}€</h1>
-                        <div className="container">
-                            <div className="carritoBtn">
-                                <Link to={"/envio"} className="registerLink">
-                                    <button type="button" className="btn btn-primary mb-4 w-100">
-                                        <b>Realizar pedido</b>
-                                    </button>
-                                </Link>
-                            </div>
+            {precioTotalCarrito <= 0 ? (
+                <div className="carrito-vacio">
+                    <img src={iconoCestaEmoty} style={{ height: "700px" }} alt="" />
+                </div>
+            ) : (
+                <>
+                    <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito?.toFixed(2)}€</h1>
+                    <div className="container">
+                        <div className="carritoBtn">
+                            <Link to={"/envio"} className="registerLink">
+                                <button type="button" className="btn btn-primary mb-4 w-100">
+                                    <b>Realizar pedido</b>
+                                </button>
+                            </Link>
                         </div>
-                    </>
-            }
+                    </div>
+                </>
+            )}
         </>
     );
 };

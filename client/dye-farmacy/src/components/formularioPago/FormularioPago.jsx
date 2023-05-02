@@ -1,14 +1,18 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UsuarioServices from "../../services/usuario.service";
 
-const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
-
+const FormularioPago = ({ precioTotalCarrito, userData, setUserData }) => {
     const navigate = useNavigate();
 
-
-    const [inputsDataUser, setinputsDataUser] = useState(userData);
-
+    const [inputsDataUser, setinputsDataUser] = useState({
+        ...userData,
+        telefono: "",
+        direccion: "",
+        codigoPostal: "",
+        ciudad: "",
+        pais: "",
+    });
 
     const handleOnChangeUser = (e) => {
         setinputsDataUser({
@@ -21,8 +25,9 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
         e.preventDefault();
         async function insertPedido() {
             try {
-                await UsuarioServices.editUser(inputsDataUser)
-                setUserData(await UsuarioServices.getUserById(userData.idUsuario));
+                await UsuarioServices.editUser(inputsDataUser);
+                let newUserData = await UsuarioServices.getUserById(userData.idUsuario);
+                setUserData(newUserData);
                 navigate("/cofirmarPago");
             } catch (error) {
                 console.log(error);
@@ -40,8 +45,16 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                             TELÉFONO
                         </label>
                         <div>
-                            <input id="telefono" name="telefono" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeUser}
-                                value={inputsDataUser.telefono} />
+                            <input
+                                id="telefono"
+                                name="telefono"
+                                type="text"
+                                placeholder=""
+                                required
+                                className="formularioLoginInput"
+                                onChange={handleOnChangeUser}
+                                value={inputsDataUser.telefono}
+                            />
                         </div>
                     </div>
 
@@ -68,8 +81,16 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                             CÓDIGO POSTAL
                         </label>
                         <div>
-                            <input id="codigoPostal" name="codigoPostal" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeUser}
-                                value={inputsDataUser.codigoPostal}/>
+                            <input
+                                id="codigoPostal"
+                                name="codigoPostal"
+                                type="text"
+                                placeholder=""
+                                required
+                                className="formularioLoginInput"
+                                onChange={handleOnChangeUser}
+                                value={inputsDataUser.codigoPostal}
+                            />
                         </div>
                     </div>
 
@@ -78,8 +99,16 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                             CIUDAD
                         </label>
                         <div>
-                            <input id="ciudad" name="ciudad" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeUser}
-                                value={inputsDataUser.ciudad}/>
+                            <input
+                                id="ciudad"
+                                name="ciudad"
+                                type="text"
+                                placeholder=""
+                                required
+                                className="formularioLoginInput"
+                                onChange={handleOnChangeUser}
+                                value={inputsDataUser.ciudad}
+                            />
                         </div>
                     </div>
 
@@ -88,8 +117,16 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData}) => {
                             PAÍS
                         </label>
                         <div>
-                            <input id="pais" name="pais" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeUser}
-                                value={inputsDataUser.pais}/>
+                            <input
+                                id="pais"
+                                name="pais"
+                                type="text"
+                                placeholder=""
+                                required
+                                className="formularioLoginInput"
+                                onChange={handleOnChangeUser}
+                                value={inputsDataUser.pais}
+                            />
                         </div>
                     </div>
                     <div>

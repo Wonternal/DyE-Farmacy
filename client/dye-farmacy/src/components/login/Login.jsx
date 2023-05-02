@@ -5,7 +5,7 @@ import UsuarioServices from "../../services/usuario.service";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Login = ({ setIsLogged, setUserData}) => {
+const Login = ({ setIsLogged, setUserData }) => {
     const iconoLogin = require("../../assets/light/user (2).png");
 
     const navigate = useNavigate();
@@ -16,7 +16,6 @@ const Login = ({ setIsLogged, setUserData}) => {
     };
 
     const [inputsData, setinputsData] = useState(initialInputsData);
-
 
     const handleOnChange = (e) => {
         setinputsData({
@@ -36,6 +35,7 @@ const Login = ({ setIsLogged, setUserData}) => {
                 }
                 response.json().then((response) => {
                     setUserData(response);
+                    localStorage.setItem("idUsuario", response.idUsuario);
                 });
                 setIsLogged(true);
                 Swal.fire("Inicio de sesión realizado correctamente", "", "success");

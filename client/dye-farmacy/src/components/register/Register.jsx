@@ -5,9 +5,7 @@ import UsuarioServices from "../../services/usuario.service";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Register = ({setIsLogged, setUserData}) => {
-
-
+const Register = ({ setIsLogged, setUserData }) => {
     const iconoLogin = require("../../assets/light/user (2).png");
 
     const navigate = useNavigate();
@@ -33,14 +31,20 @@ const Register = ({setIsLogged, setUserData}) => {
         async function insertUsuario() {
             try {
                 const response = await UsuarioServices.registerUser(inputsData);
+                console.log(response);
                 if (response.status !== 200) {
                     Swal.fire("Error en el registro", `El email ${inputsData.email} ya ha sido registrado previamente`, "error");
                     return;
                 }
-                response.json().then((response) => setUserData(response));
+
+                response.json().then((response) => {
+                    setUserData(response);
+                    localStorage.setItem("idUsuario", response.idUsuario);
+                });
                 setIsLogged(true);
                 Swal.fire("Registro realizado correctamente", "Le llegará un email de confirmación", "success");
                 navigate("/");
+                localStorage.setItem("idUsuario", "si");
             } catch (error) {
                 console.log(error);
             }

@@ -47,6 +47,10 @@ public class PedidoService {
 		return usuarioRepository.findById(id).get().getPedidos();
 	}
 	
+	public Pedido getPedidoById(Long id) {
+		return pedidoRepository.findById(id).get();
+	}
+	
 	public List<Pedido> getAllPedidos() {
 		return pedidoRepository.findAll();
 	}

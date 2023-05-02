@@ -45,33 +45,32 @@ const loginUser = async (data) => {
 const editUser = async (data) => {
     try {
         const response = await fetch(`${API_URL}/usuario/${data.idUsuario}`, {
-          method: 'PUT',
-          body: JSON.stringify({
-            nombre: data.nombre,
-            apellidos: data.apellidos,
-            email: data.email,
-            password: data.password,
-            rol: data.rol,
-            telefono: data.telefono,
-            direccion: data.direccion,
-            codigoPostal:  data.codigoPostal,
-            ciudad:  data.ciudad,
-            pais: data.pais,
-          }),
-          headers: {
-            'Content-type': 'application/json'
-          }
-        })
+            method: "PUT",
+            body: JSON.stringify({
+                nombre: data.nombre,
+                apellidos: data.apellidos,
+                email: data.email,
+                password: data.password,
+                rol: data.rol,
+                telefono: data.telefono,
+                direccion: data.direccion,
+                codigoPostal: data.codigoPostal,
+                ciudad: data.ciudad,
+                pais: data.pais,
+            }),
+            headers: {
+                "Content-type": "application/json",
+            },
+        });
         return response;
     } catch (error) {
         console.log(error);
-        console.log("Cascaso catch del service");
+        console.log("Cascaso catch del service edit user");
     }
-  };
-  const getUserById = async (id) => {
+};
+const getUserById = async (id) => {
     const response = await axios.get(`${API_URL}/usuario/${id}`);
     const user = response.data;
-    console.log(user);
     return user;
 };
 
@@ -79,14 +78,14 @@ const getAllUser = async () => {
     const response = await axios.get(`${API_URL}/usuario`);
     const usuario = response.data;
     return usuario;
-  };
+};
 
 const UsuarioServices = {
     registerUser,
     loginUser,
     editUser,
     getUserById,
-    getAllUser
+    getAllUser,
 };
 
 export default UsuarioServices;

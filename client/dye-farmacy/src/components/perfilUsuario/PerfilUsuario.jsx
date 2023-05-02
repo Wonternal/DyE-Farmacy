@@ -20,7 +20,7 @@ const PerfilUsuario = ({ setIsLogged, userData, setUserData, setPrecioTotalCarri
     const logout = () => {
         setIsLogged(false);
         setUserData({});
-        setPrecioTotalCarrito(0.0);
+        localStorage.removeItem("idUsuario");
         Swal.fire("Sesión cerrada con éxito", "", "success");
         navigate("/");
     };
