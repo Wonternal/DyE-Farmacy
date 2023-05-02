@@ -26,6 +26,7 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData }) => {
         async function insertPedido() {
             try {
                 await UsuarioServices.editUser(inputsDataUser);
+                console.log(userData);
                 let newUserData = await UsuarioServices.getUserById(userData.idUsuario);
                 setUserData(newUserData);
                 navigate("/cofirmarPago");

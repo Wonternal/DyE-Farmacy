@@ -80,12 +80,32 @@ const getAllUser = async () => {
     return usuario;
 };
 
+
+const uploadPhoto = async (foto, idProducto) => {
+    console.log(foto, idProducto);
+    const formData = new FormData();
+    formData.append("file", foto);
+    formData.append("id", idProducto);
+    try {
+      const response = await fetch(`${API_URL}/producto/upload`, {
+        method: "POST",
+        body: formData,
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+      console.log("Cascaso catch del service");
+    }
+  };
+  
+
 const UsuarioServices = {
     registerUser,
     loginUser,
     editUser,
     getUserById,
     getAllUser,
+    uploadPhoto
 };
 
 export default UsuarioServices;

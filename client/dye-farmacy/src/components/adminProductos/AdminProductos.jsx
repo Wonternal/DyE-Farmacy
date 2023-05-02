@@ -53,18 +53,20 @@ const AdminProductos = ({ userData }) => {
     })
     return (
         <>
-        <div style={{display: "flex",justifyContent: "center"}}>
-                <button className="btn btn-success" style={{width: "80%"}} onClick={() => addProdct()}>
-                    <b style={{fontSize: 30, padding: 10}}> AÑADIR</b>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+                <button className="btn btn-success" style={{ width: "80%" }} onClick={() => addProdct()}>
+                    <b style={{ fontSize: 30, padding: 10 }}> AÑADIR</b>
                 </button>
-        </div>
+            </div>
             <div className="productCardContainer">
                 {productos.map((producto) => {
                     return (
                         <div className="productCard" style={{ width: "20rem" }} key={producto.idProducto}>
                             <div className="productContent">
                                 <div onClick={() => linkToProduct(producto.idProducto)} style={{ cursor: "pointer" }}>
-                                    <img className="card-img-top" src={iconPorgress} alt="" />
+                                    {
+                                        producto?.foto ? <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/${producto?.foto}`} alt="" /> : <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
+                                    }
                                     <div className="card-body">
                                         <h3 className="card-title">{producto.nombre}</h3>
                                         <h5 className="card-text">{producto.precio} €</h5>

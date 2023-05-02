@@ -67,7 +67,9 @@ const Home = ({ isLogged, userData, setIsAdmin, setUserData, setIsLogged }) => {
                         <div className="productCard" style={{ width: "20rem" }} key={producto.idProducto}>
                             <div className="productContent">
                                 <div onClick={() => linkToProduct(producto.idProducto)} style={{ cursor: "pointer" }}>
-                                    <img className="card-img-top" src={iconPorgress} alt="" />
+                                    {
+                                        producto?.foto ? <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/${producto?.foto}`} alt="" /> : <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
+                                    }
                                     <div className="card-body">
                                         <h3 className="card-title">{producto.nombre}</h3>
                                         <h5 className="card-text">{producto.precio} €</h5>

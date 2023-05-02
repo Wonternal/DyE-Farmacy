@@ -29,6 +29,7 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                             stock: productData.cantidad,
                             categoria: productData.categoria,
                             cantidad: carritoItem.cantidad,
+                            foto: productData.foto
                         },
                     ]);
                 });
@@ -41,6 +42,7 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
 
     useEffect(() => {
         calcularPrecioTotalCarrito();
+        console.log(carritoItems);
     }, [carritoItems]);
 
     const handleOnClickEliminarProductoCarrito = async (idCarrito, idProducto) => {
@@ -70,7 +72,9 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                         <div className="productCard" style={{ width: "20rem" }} key={index}>
                             <div className="productContent">
                                 <div style={{ cursor: "pointer" }}>
-                                    <img className="card-img-top" src={iconPorgress} alt="" />
+                                {
+                                        carritoItem?.foto ? <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/${carritoItem?.foto}`} alt="" /> : <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
+                                    }
                                     <div className="card-body">
                                         <h3 className="card-title">{carritoItem.nombre}</h3>
                                         <h5 className="card-text">Cantidad: {carritoItem.cantidad}</h5>
