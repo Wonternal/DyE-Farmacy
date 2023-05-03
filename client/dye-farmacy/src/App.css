@@ -10,6 +10,10 @@
     justify-content: space-between;
     height: 100px;
 }
+.card-img-top{
+    width: 100%;
+    height: 220px;
+}
 
 .logoImage {
     height: 100%;
@@ -294,13 +298,16 @@
     background-color: var(--bs-btn-bg);
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+.card-body{
+    width: 100%;
+    height: 100px;
+}
 
 .productCardContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    padding-inline: 100px;
+    justify-content: space-evenly;
 }
 
 .productCard {

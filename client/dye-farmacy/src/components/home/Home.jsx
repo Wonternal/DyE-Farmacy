@@ -74,7 +74,7 @@ const Home = ({ isLogged, userData, setIsAdmin, setUserData, setIsLogged }) => {
                                         <h3 className="card-title">{producto.nombre}</h3>
                                         <h5 className="card-text">{producto.precio} €</h5>
                                     </div>
-                                    <button type="submit" className="btn btn-primary mt-4 w-100">
+                                    <button type="submit" className="btn btn-primary w-100" style={{ marginTop: "100px" }}>
                                         <b>COMPRAR</b>
                                     </button>
                                 </div>
