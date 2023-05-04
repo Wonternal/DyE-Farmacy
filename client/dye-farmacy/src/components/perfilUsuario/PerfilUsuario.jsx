@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -38,21 +38,21 @@ const PerfilUsuario = ({ setIsLogged, userData, setUserData, setPrecioTotalCarri
                     <hr />
                     <div>
                         <label className="text-secondary">NOMBRE</label>
-                        <div>{userData.nombre}</div>
+                        <p>{userData.nombre}</p>
                     </div>
 
                     <div>
                         <label className="text-secondary">APELLIDOS</label>
-                        <div>{userData.apellidos}</div>
+                        <p>{userData.apellidos}</p>
                     </div>
                     <div>
                         <label className="text-secondary">EMAIL</label>
-                        <div>{userData.email}</div>
+                        <p>{userData.email}</p>
                     </div>
                     <div>
                         <label className="text-secondary">CONTRASEÑA</label>
                         <div style={{ display: "flex" }}>
-                            {verPassword ? userData.password : retrievePassword()}
+                            <p>{verPassword ? userData.password : retrievePassword()}</p>
                             <img className="iconoBotonVerPassword mr-5" src={iconoEye} alt="" onClick={() => setVerPassword(!verPassword)} />
                         </div>
                     </div>

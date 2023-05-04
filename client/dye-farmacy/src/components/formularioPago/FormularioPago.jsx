@@ -132,7 +132,7 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData }) => {
                     </div>
                     <div>
                         <button type="submit" className="btn btn-primary mt-4 w-100">
-                            <b>CONFRIMAR DATOS DE ENVIO</b>
+                            <b style={{color :"white"}}>CONFRIMAR DATOS DE ENVIO</b>
                         </button>
                     </div>
                     <hr />

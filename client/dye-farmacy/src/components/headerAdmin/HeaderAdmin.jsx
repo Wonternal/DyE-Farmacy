@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -9,6 +9,13 @@ const HeaderAdmin = ({ setIsLogged, userData, setUserData, setIsAdmin }) => {
     const iconoLuna = require("../../assets/dark/night-mode.png");
     const iconoUsuario = require("../../assets/dark/user.png");
     const navigate = useNavigate();
+
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+        document.body.classList.toggle("dark-mode");
+    };
 
     const logout = () => {
         setIsLogged(false);
@@ -25,11 +32,11 @@ const HeaderAdmin = ({ setIsLogged, userData, setUserData, setIsAdmin }) => {
                     <img src={logoClaro} alt="logo" className="logoImage" />
                 </Link>
                 <div className="botonesContainer">
-                    <img src={iconoLuna} alt="logo" className="botonImage" />
+                    <img src={iconoLuna} alt="logo" className="botonImage" onClick={toggleDarkMode} />
                     <div>
                         <img src={iconoUsuario} alt="logo" className="botonImage mr-2" />
                         <span>
-                            {userData.nombre} {userData.apellidos}
+                            {userData.nombre}
                         </span>
                     </div>
                     <button onClick={logout}>Cerrar</button>

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
-import UsuarioServices from "../../services/usuario.service";
 
 const initialState = {
     idProducto: null,
@@ -106,7 +105,7 @@ const AdminAnadirProducto = () => {
                     </div>
                     <div>
                         <button type="submit" className="btn btn-primary mt-4 w-100">
-                            <b>CONFRIMAR</b>
+                            <b style={{color: "white"}}>CONFRIMAR</b>
                         </button>
                     </div>
                     <hr />

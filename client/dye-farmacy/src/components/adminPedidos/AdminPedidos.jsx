@@ -27,7 +27,7 @@ const AdminPedidos = ({ userData }) => {
 
     return (
         <>
-            <div className="containerAdmin">
+            <div className="containerAdminLista">
                 <div className="tableAdminPedido">
                     <table className="table">
                         <thead>

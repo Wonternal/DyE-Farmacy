@@ -128,7 +128,7 @@ const Register = ({ setIsLogged, setUserData }) => {
                     <div>
                         <button type="submit" className="btn btn-primary mt-4 w-100">
                             <img className="iconoBotonLogin mr-5" src={iconoLogin} alt="" />
-                            <b>REGISTRATE</b>
+                            <b style={{color: "white"}}>REGISTRATE</b>
                         </button>
                     </div>
                     <hr />

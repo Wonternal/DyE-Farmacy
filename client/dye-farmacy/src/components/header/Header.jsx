@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -9,6 +9,13 @@ const Header = ({ isLogged, userData, precioTotalCarrito }) => {
     const iconoUsuario = require("../../assets/dark/user.png");
     const iconoCesta = require("../../assets/dark/shopping-cart.png");
 
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+        document.body.classList.toggle("dark-mode");
+    };
+
     return (
         <>
             <div className="headerContainer">
@@ -16,7 +23,7 @@ const Header = ({ isLogged, userData, precioTotalCarrito }) => {
                     <img src={logoClaro} alt="logo" className="logoImage" />
                 </Link>
                 <div className="botonesContainer">
-                    <img src={iconoLuna} alt="logo" className="botonImage" />
+                    <img src={iconoLuna} alt="logo" className="botonImage" onClick={toggleDarkMode} />
                     {isLogged ? (
                         <Link to={"/perfil"}>
                             <img src={iconoUsuario} alt="Icono Usuario" className="botonImage" />

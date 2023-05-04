@@ -24,7 +24,9 @@ const AdminProductInfo = ({userData}) => {
     return (
         <>
             <div className="productContainertId">
-                <img style={{ width: 450, height: 450 }} src={iconPorgress} alt="" />
+            {
+                    producto?.foto ? <img className="productImg" src={`http://localhost:8080/api/v1/producto/uploads/img/${producto?.foto}`} alt="" /> : <img className="productImg" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
+                }
                 <div style={{ marginLeft: 20 }}>
                     <h1>
                         <b>{producto?.nombre}</b>
