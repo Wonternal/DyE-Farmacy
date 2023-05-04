@@ -1,35 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const Header = ({ isLogged, userData, precioTotalCarrito }) => {
+const Header = ({ isLogged, userData, setIsDarkMode, isDarkMode }) => {
     const logoClaro = require("../../assets/logos/Logo_claro.png");
+    const logoOscuro = require("../../assets/logos/Logo oscuro.png");
+    const iconoLunaClaro = require("../../assets/dark/night-mode.png");
+    const iconoLunaOscuro = require("../../assets/light/sol.png");
+    const iconoUsuarioClaro = require("../../assets/dark/user.png");
+    const iconoUsuarioOscuro = require("../../assets/light/user (2).png");
+    const iconoCestaClaro = require("../../assets/dark/shopping-cart.png");
+    const iconoCestaOscuro = require("../../assets/light/shopping-cart.png");
 
-    const iconoLuna = require("../../assets/dark/night-mode.png");
-    const iconoUsuario = require("../../assets/dark/user.png");
-    const iconoCesta = require("../../assets/dark/shopping-cart.png");
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+        document.body.classList.toggle("dark-mode");
+    };
 
     return (
         <>
             <div className="headerContainer">
                 <Link to={"/"}>
-                    <img src={logoClaro} alt="logo" className="logoImage" />
+                    {
+                        isDarkMode ? <img src={logoOscuro} alt="logo" className="logoImage" /> : <img src={logoClaro} alt="logo" className="logoImage" />
+                    }
                 </Link>
                 <div className="botonesContainer">
-                    <img src={iconoLuna} alt="logo" className="botonImage" />
+                    {
+                        isDarkMode ? <img src={iconoLunaOscuro} alt="Icono Usuario" className="botonImage" onClick={toggleDarkMode} /> : <img src={iconoLunaClaro} alt="Icono Usuario" className="botonImage" onClick={toggleDarkMode} />
+                    }
                     {isLogged ? (
                         <Link to={"/perfil"}>
-                            <img src={iconoUsuario} alt="Icono Usuario" className="botonImage" />
+                            {
+                                isDarkMode ? <img src={iconoUsuarioOscuro} alt="Icono Usuario" className="botonImage" /> : <img src={iconoUsuarioClaro} alt="Icono Usuario" className="botonImage" />
+                            }
                         </Link>
                     ) : (
                         <Link to={"/login"}>
-                            <img src={iconoUsuario} alt="Icono Usuario" className="botonImage" />
+                            {
+                                isDarkMode ? <img src={iconoUsuarioOscuro} alt="Icono Usuario" className="botonImage" /> : <img src={iconoUsuarioClaro} alt="Icono Usuario" className="botonImage" />
+                            }
                         </Link>
                     )}
                     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         {isLogged ? (
                             <Link to={`/cesta/${userData?.idUsuario}`} style={{ textDecoration: "none", color: "black" }}>
-                                <img src={iconoCesta} alt="logo" className="botonImage" />
+                                {
+                                    isDarkMode ? <img src={iconoCestaOscuro} alt="Icono Usuario" className="botonImage" /> : <img src={iconoCestaClaro} alt="Icono Usuario" className="botonImage" />
+                                }
                             </Link>
                         ) : (
                             <Link
@@ -37,7 +55,9 @@ const Header = ({ isLogged, userData, precioTotalCarrito }) => {
                                 style={{ textDecoration: "none", color: "black" }}
                                 onClick={() => Swal.fire("Error", "Debe iniciar sesión antes de acceder al carrito", "info")}
                             >
-                                <img src={iconoCesta} alt="logo" className="botonImage" />
+                                {
+                                    isDarkMode ? <img src={iconoCestaOscuro} alt="Icono Usuario" className="botonImage" /> : <img src={iconoCestaClaro} alt="Icono Usuario" className="botonImage" />
+                                }
                             </Link>
                         )}
                     </div>

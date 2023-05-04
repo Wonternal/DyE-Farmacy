@@ -2,12 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import CarritoServices from "../../services/carrito.service";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
-import Swal from "sweetalert2";
 
 const AdminCestaClienteUser = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
-    const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const { id } = useParams();
     const [carritoItems, setCarritoItems] = useState([]);
     const iconoCestaEmoty = require("../../assets/dark/carrito-vacio.png");
@@ -29,6 +27,7 @@ const AdminCestaClienteUser = ({ precioTotalCarrito, setPrecioTotalCarrito }) =>
                             stock: productData.cantidad,
                             categoria: productData.categoria,
                             cantidad: carritoItem.cantidad,
+                            foto: productData.foto
                         },
                     ]);
                 });
@@ -41,8 +40,8 @@ const AdminCestaClienteUser = ({ precioTotalCarrito, setPrecioTotalCarrito }) =>
 
     useEffect(() => {
         calcularPrecioTotalCarrito();
+        console.log(carritoItems);
     }, [carritoItems]);
-
 
     const calcularPrecioTotalCarrito = () => {
         let precioTotal = 0;
@@ -60,7 +59,9 @@ const AdminCestaClienteUser = ({ precioTotalCarrito, setPrecioTotalCarrito }) =>
                         <div className="productCard" style={{ width: "20rem" }} key={index}>
                             <div className="productContent">
                                 <div style={{ cursor: "pointer" }}>
-                                    <img className="card-img-top" src={iconPorgress} alt="" />
+                                {
+                                        carritoItem?.foto ? <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/${carritoItem?.foto}`} alt="" /> : <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
+                                    }
                                     <div className="card-body">
                                         <h3 className="card-title">{carritoItem.nombre}</h3>
                                         <h5 className="card-text">Cantidad: {carritoItem.cantidad}</h5>
@@ -72,15 +73,15 @@ const AdminCestaClienteUser = ({ precioTotalCarrito, setPrecioTotalCarrito }) =>
                     );
                 })}
             </div>
-            {
-                precioTotalCarrito <= 0 ?
-                    <div className="carrito-vacio">
-                        <img src={iconoCestaEmoty} style={{ height: "700px"}} alt="" />
-                    </div> :
-                    <>
-                        <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito}€</h1>
-                    </>
-            }
+            {precioTotalCarrito <= 0 ? (
+                <div className="carrito-vacio">
+                    <img src={iconoCestaEmoty} style={{ height: "450px" }} alt="" />
+                </div>
+            ) : (
+                <>
+                    <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito?.toFixed(2)}€</h1>
+                </>
+            )}
         </>
     );
 };

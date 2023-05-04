@@ -143,7 +143,7 @@ const AdminEdit = () => {
                     </div>
                     <div>
                         <button type="submit" className="btn btn-primary mt-4 w-100">
-                            <b>CONFRIMAR</b>
+                            <b style={{color: "white"}}>CONFRIMAR</b>
                         </button>
                     </div>
                     <hr />

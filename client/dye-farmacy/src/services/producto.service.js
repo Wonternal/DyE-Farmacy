@@ -14,21 +14,6 @@ const getAllProduct = async () => {
     return producto;
   };
 
-  const deleteProduct = async (data) => {
-    console.log(data);
-    try {
-      await fetch(`${API_URL}/producto/${data.idProducto}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-type': 'application/json'
-        }
-      })
-      return 1;
-    } catch (error) {
-      throw error
-    }
-  };
-
   const editProduct = async (data) => {
     try {
         const response = await fetch(`${API_URL}/producto/${data.idProducto}`, {
@@ -76,7 +61,6 @@ const createProduct = async (data) => {
 const ProductoServices = {
     getAllProduct,
     getProductById,
-    deleteProduct,
     editProduct,
     createProduct
 };

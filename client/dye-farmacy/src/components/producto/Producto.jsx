@@ -11,7 +11,6 @@ const Producto = ({ isLogged, userData }) => {
     const [quantity, setQuantity] = useState(1);
 
     const [producto, setProducto] = useState();
-    const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const iconCarrito = require("../../assets/dark/shopping-cart.png");
     useEffect(() => {
         if (idProducto) {
@@ -46,7 +45,7 @@ const Producto = ({ isLogged, userData }) => {
         <>
             <div className="productContainertId">
                 {
-                    producto?.foto ? <img style={{ width: 450, height: 450 }} src={`http://localhost:8080/api/v1/producto/uploads/img/${producto?.foto}`} alt="" /> : <img style={{ width: 450, height: 450 }} src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
+                    producto?.foto ? <img className="productImg" src={`http://localhost:8080/api/v1/producto/uploads/img/${producto?.foto}`} alt="" /> : <img className="productImg" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
                 }
                 <div style={{ marginLeft: 20 }}>
                     <h1>

@@ -3,12 +3,19 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import { useNavigate } from "react-router-dom";
-const HeaderAdmin = ({ setIsLogged, userData, setUserData, setIsAdmin }) => {
+const HeaderAdmin = ({ setIsLogged, userData, setUserData, setIsAdmin, isDarkMode, setIsDarkMode }) => {
     const logoClaro = require("../../assets/logos/Logo_claro.png");
-
-    const iconoLuna = require("../../assets/dark/night-mode.png");
-    const iconoUsuario = require("../../assets/dark/user.png");
+    const logoOscuro = require("../../assets/logos/Logo oscuro.png");
+    const iconoLunaClaro = require("../../assets/dark/night-mode.png");
+    const iconoLunaOscuro = require("../../assets/light/sol.png");
+    const iconoUsuarioClaro = require("../../assets/dark/user.png");
+    const iconoUsuarioOscuro = require("../../assets/light/user (2).png");
     const navigate = useNavigate();
+
+    const toggleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+        document.body.classList.toggle("dark-mode");
+    };
 
     const logout = () => {
         setIsLogged(false);
@@ -22,14 +29,20 @@ const HeaderAdmin = ({ setIsLogged, userData, setUserData, setIsAdmin }) => {
         <>
             <div className="headerContainer">
                 <Link to={"/"}>
-                    <img src={logoClaro} alt="logo" className="logoImage" />
+                    {
+                        isDarkMode ? <img src={logoOscuro} alt="logo" className="logoImage" /> : <img src={logoClaro} alt="logo" className="logoImage" />
+                    }
                 </Link>
                 <div className="botonesContainer">
-                    <img src={iconoLuna} alt="logo" className="botonImage" />
+                    {
+                        isDarkMode ? <img src={iconoLunaOscuro} alt="Icono Usuario" className="botonImage" onClick={toggleDarkMode} /> : <img src={iconoLunaClaro} alt="Icono Usuario" className="botonImage" onClick={toggleDarkMode} />
+                    }
                     <div>
-                        <img src={iconoUsuario} alt="logo" className="botonImage mr-2" />
+                        {
+                            isDarkMode ? <img src={iconoUsuarioOscuro} alt="Icono Usuario" className="botonImage" /> : <img src={iconoUsuarioClaro} alt="Icono Usuario" className="botonImage" />
+                        }
                         <span>
-                            {userData.nombre} {userData.apellidos}
+                            {userData.nombre}
                         </span>
                     </div>
                     <button onClick={logout}>Cerrar</button>

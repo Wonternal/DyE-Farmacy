@@ -78,7 +78,7 @@ const Login = ({ setIsLogged, setUserData }) => {
                     <div>
                         <button type="submit" className="btn btn-primary mt-4 w-100">
                             <img className="iconoBotonLogin mr-5" src={iconoLogin} alt="" />
-                            <b>INICIAR SESIÓN</b>
+                            <b style={{color:"white"}}>INICIAR SESIÓN</b>
                         </button>
                     </div>
                     <hr />

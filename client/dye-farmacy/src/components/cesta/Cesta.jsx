@@ -7,7 +7,6 @@ import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
 
 const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
-    const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const { id } = useParams();
     const [carritoItems, setCarritoItems] = useState([]);
     const iconoCestaEmoty = require("../../assets/dark/carrito-vacio.png");
@@ -96,7 +95,7 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
             </div>
             {precioTotalCarrito <= 0 ? (
                 <div className="carrito-vacio">
-                    <img src={iconoCestaEmoty} style={{ height: "700px" }} alt="" />
+                    <img src={iconoCestaEmoty} style={{ height: "450px" }} alt="" />
                 </div>
             ) : (
                 <>
