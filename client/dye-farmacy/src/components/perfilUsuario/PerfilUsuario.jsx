@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const PerfilUsuario = ({ setIsLogged, userData, setUserData, setPrecioTotalCarrito }) => {
+const PerfilUsuario = ({ setIsLogged, userData, setUserData }) => {
     const iconoLogin = require("../../assets/light/user (2).png");
     const iconoLogout = require("../../assets/light/logout-white.png");
     const iconoEye = require("../../assets/dark/eye.png");

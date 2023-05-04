@@ -296,6 +296,7 @@ input {
   border: 1px solid black;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  background-color: var(--fondo);
 }
 
 .inputCarritoContainer:focus {

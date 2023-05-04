@@ -8,9 +8,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import Carousel from "react-bootstrap/Carousel";
 import UsuarioServices from "../../services/usuario.service";
 
-const Home = ({ isLogged, userData, setIsAdmin, setUserData, setIsLogged }) => {
+const Home = ({setIsAdmin, setUserData, setIsLogged }) => {
     const [productos, setProductos] = useState([]);
-    const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     const carouselImg1 = require("../../assets/carousel/carousel1.jpg");
     const carouselImg2 = require("../../assets/carousel/carousel2.jpg");
     const carouselImg3 = require("../../assets/carousel/CAROUSEL3.jpg");

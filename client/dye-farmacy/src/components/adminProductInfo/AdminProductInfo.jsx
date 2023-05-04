@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import {useParams } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
 
-const AdminProductInfo = ({userData}) => {
+const AdminProductInfo = () => {
     const { idProducto } = useParams();
 
     const [producto, setProducto] = useState();
-    const iconPorgress = require("../../assets/backgrounds/workporgess.png");
     useEffect(() => {
         if (idProducto) {
             async function retriveProduct() {
