@@ -28,14 +28,13 @@ const DyEFarmacyApp = () => {
     const [isLogged, setIsLogged] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [userData, setUserData] = useState();
-    const [productData, setProductData] = useState();
     const [precioTotalCarrito, setPrecioTotalCarrito] = useState(0.0);
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     return (
         <div>
             {isAdmin ? (
-                <HeaderAdmin isLogged={isLogged} userData={userData} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode}
+                <HeaderAdmin isLogged={isLogged} setUserData={setUserData} setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} userData={userData} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode}
                 />
             ) : (
                 <Header isLogged={isLogged} userData={userData} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
