@@ -31,7 +31,6 @@ const Register = ({ setIsLogged, setUserData }) => {
         async function insertUsuario() {
             try {
                 const response = await UsuarioServices.registerUser(inputsData);
-                console.log(response);
                 if (response.status !== 200) {
                     Swal.fire("Error en el registro", `El email ${inputsData.email} ya ha sido registrado previamente`, "error");
                     return;

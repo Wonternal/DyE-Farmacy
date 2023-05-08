@@ -29,7 +29,7 @@ const addPedido = async (data) => {
         });
         return response;
     } catch (error) {
-        console.log("Cascaso catch del service");
+        throw error;
     }
 };
 

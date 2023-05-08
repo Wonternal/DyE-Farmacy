@@ -19,7 +19,7 @@ const registerUser = async (data) => {
 
         return response;
     } catch (error) {
-        console.log("Cascaso catch del service");
+        throw error;
     }
 };
 
@@ -37,8 +37,7 @@ const loginUser = async (data) => {
         });
         return response;
     } catch (error) {
-        console.log(error);
-        console.log("Cascaso catch del service");
+        throw error;
     }
 };
 
@@ -64,8 +63,7 @@ const editUser = async (data) => {
         });
         return response;
     } catch (error) {
-        console.log(error);
-        console.log("Cascaso catch del service edit user");
+        throw error;
     }
 };
 const getUserById = async (id) => {
@@ -82,7 +80,6 @@ const getAllUser = async () => {
 
 
 const uploadPhoto = async (foto, idProducto) => {
-    console.log(foto, idProducto);
     const formData = new FormData();
     formData.append("file", foto);
     formData.append("id", idProducto);
@@ -93,8 +90,7 @@ const uploadPhoto = async (foto, idProducto) => {
       });
       return response;
     } catch (error) {
-      console.log(error);
-      console.log("Cascaso catch del service");
+      throw error;
     }
   };
   
