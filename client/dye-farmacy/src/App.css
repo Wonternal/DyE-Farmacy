@@ -6,7 +6,7 @@
   --letras: #000000;
   --fondoFooter: #2f2f2f;
   --letrasFooter: #ffffff;
-  --logo: url("./assets/logos/Logo_claro.png");
+  --fondoImg: url("./assets/backgrounds/fondoClaro.png");
 }
 
 .dark-mode {
@@ -17,15 +17,27 @@
   --letras: #ffffff;
   --fondoFooter: #001e32;
   --letrasFooter: #ffffff;
-}
+  --fondoImg: url("./assets/backgrounds/fondoOscuro.png");
 
-/* body {
-    background-color: red;
-  } */
+}
+.carouselContainer{
+  background-color: var(--fondo);
+}
+.containerCestaButtons{
+  background-color: var(--fondo);
+  padding-bottom: 30px;
+}
+.btnContainerAdmin{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  background-color: var(--fondo);
+}
 p,
 b,
 span,
-input {
+input, h1 {
   color: var(--letras);
 }
 
@@ -86,7 +98,7 @@ input {
   padding: 20px;
 }
 .loginContainer {
-  background-image: url("./assets/backgrounds/image (1).png");
+  background-image: var(--fondoImg);
   height: 105vh;
   display: flex;
   justify-content: center;
@@ -153,14 +165,14 @@ input {
 }
 
 .containerAdmin {
-  background-image: url("./assets/backgrounds/image (1).png");
+  background-image: var(--fondoImg);
   height: 100vh;
   display: flex;
   justify-content: center;
 }
 
 .containerAdminLista {
-    background-image: url("./assets/backgrounds/image (1).png");
+    background-image: var(--fondoImg);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -282,8 +294,9 @@ input {
 
 .productContainertId {
   display: flex;
-  margin: 30px;
+  padding: 30px;
   height: 100vh;
+  background-color: var(--fondo);
 }
 
 .containerCarrito {
@@ -310,9 +323,11 @@ input {
     height: auto;
   }
   .containerAdminLista {
+    padding-top: 200px;
     display: flex;
-    flex-direction: column;
-    height: 100vh;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
   }
   .productImg {
     height: 300px;
@@ -359,12 +374,13 @@ input {
   .productContainertId {
     display: flex;
     flex-direction: column;
-    margin: 10px auto;
     height: auto;
-    max-width: 300px;
+    align-items: center;
   }
 }
-
+.text-center{
+  background-color: var(--fondo);
+}
 .textoCarritoContainer {
   background-color: var(--colorVerdeFarmacia);
   padding: 15px;
@@ -456,6 +472,7 @@ input {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  background-color: var(--fondo);
 }
 
 .productCard {

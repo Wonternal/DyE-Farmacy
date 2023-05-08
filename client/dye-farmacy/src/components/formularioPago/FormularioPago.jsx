@@ -2,17 +2,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UsuarioServices from "../../services/usuario.service";
 
-const FormularioPago = ({ precioTotalCarrito, userData, setUserData }) => {
+const FormularioPago = ({userData, setUserData }) => {
     const navigate = useNavigate();
 
-    const [inputsDataUser, setinputsDataUser] = useState({
-        ...userData,
-        telefono: "",
-        direccion: "",
-        codigoPostal: "",
-        ciudad: "",
-        pais: "",
-    });
+    const [inputsDataUser, setinputsDataUser] = useState(userData);
 
     const handleOnChangeUser = (e) => {
         setinputsDataUser({
@@ -26,9 +19,7 @@ const FormularioPago = ({ precioTotalCarrito, userData, setUserData }) => {
         async function insertPedido() {
             try {
                 await UsuarioServices.editUser(inputsDataUser);
-                console.log(userData);
-                let newUserData = await UsuarioServices.getUserById(userData.idUsuario);
-                setUserData(newUserData);
+                setUserData(await UsuarioServices.getUserById(userData.idUsuario));
                 navigate("/cofirmarPago");
             } catch (error) {
                 console.log(error);

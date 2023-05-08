@@ -31,8 +31,7 @@ const getAllProduct = async () => {
         })
         return response;
     } catch (error) {
-        console.log(error);
-        console.log("Cascaso catch del service");
+        throw error;
     }
   };
 
@@ -55,7 +54,7 @@ const createProduct = async (data) => {
 
       return response;
   } catch (error) {
-      console.log("Cascaso catch del service");
+      throw error
   }
 };
 const ProductoServices = {

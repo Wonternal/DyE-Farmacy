@@ -21,7 +21,7 @@ const AdminClients = ({ userData }) => {
 
     return (
         <>
-            <div class="containerAdminLista">
+            <div class="containerAdminLista" style={{overflowX: "auto"}}>  
                 <div class="tableAdminPedido">
                     <div class="table-responsive">
                         <table class="table">

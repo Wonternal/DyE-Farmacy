@@ -40,7 +40,6 @@ const AdminCestaClienteUser = ({ precioTotalCarrito, setPrecioTotalCarrito }) =>
 
     useEffect(() => {
         calcularPrecioTotalCarrito();
-        console.log(carritoItems);
     }, [carritoItems]);
 
     const calcularPrecioTotalCarrito = () => {

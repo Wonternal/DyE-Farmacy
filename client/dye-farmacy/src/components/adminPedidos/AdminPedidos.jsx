@@ -27,7 +27,7 @@ const AdminPedidos = ({ userData }) => {
 
     return (
         <>
-            <div className="containerAdminLista">
+            <div className="containerAdminLista" style={{overflowX: "auto"}}>
                 <div className="tableAdminPedido">
                     <table className="table">
                         <thead>

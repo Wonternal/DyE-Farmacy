@@ -32,7 +32,7 @@ const AdminProductos = ({ userData }) => {
     })
     return (
         <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="btnContainerAdmin">
                 <button className="btn btn-success mt-3" style={{ width: "80%" }} onClick={() => addProdct()}>
                     <b style={{ fontSize: 30, padding: 10, color: "white" }}> AÑADIR</b>
                 </button>

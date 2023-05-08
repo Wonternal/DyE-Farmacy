@@ -41,7 +41,6 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
 
     useEffect(() => {
         calcularPrecioTotalCarrito();
-        console.log(carritoItems);
     }, [carritoItems]);
 
     const handleOnClickEliminarProductoCarrito = async (idCarrito, idProducto) => {
@@ -71,7 +70,7 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                         <div className="productCard" style={{ width: "20rem" }} key={index}>
                             <div className="productContent">
                                 <div style={{ cursor: "pointer" }}>
-                                {
+                                    {
                                         carritoItem?.foto ? <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/${carritoItem?.foto}`} alt="" /> : <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
                                     }
                                     <div className="card-body">
@@ -79,7 +78,6 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                                         <h5 className="card-text">Cantidad: {carritoItem.cantidad}</h5>
                                         <h5 className="card-text">Precio {carritoItem.precio} €</h5>
                                     </div>
-
                                     <button
                                         type="button"
                                         onClick={() => handleOnClickEliminarProductoCarrito(carritoItem.idCarrito, carritoItem.idProducto)}
@@ -99,14 +97,16 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito }) => {
                 </div>
             ) : (
                 <>
-                    <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito?.toFixed(2)}€</h1>
-                    <div className="container">
-                        <div className="carritoBtn">
-                            <Link to={"/envio"} className="registerLink">
-                                <button type="button" className="btn btn-primary mb-4 w-100">
-                                    <b>Realizar pedido</b>
-                                </button>
-                            </Link>
+                    <div className="containerCestaButtons">
+                        <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito?.toFixed(2)}€</h1>
+                        <div className="container">
+                            <div className="carritoBtn">
+                                <Link to={"/envio"} className="registerLink">
+                                    <button type="button" className="btn btn-primary w-100">
+                                        <b>Realizar pedido</b>
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </>

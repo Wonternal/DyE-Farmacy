@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Carousel from "react-bootstrap/Carousel";
 import UsuarioServices from "../../services/usuario.service";
 
-const Home = ({setIsAdmin, setUserData, setIsLogged }) => {
+const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
     const [productos, setProductos] = useState([]);
     const carouselImg1 = require("../../assets/carousel/carousel1.jpg");
     const carouselImg2 = require("../../assets/carousel/carousel2.jpg");
@@ -22,12 +22,9 @@ const Home = ({setIsAdmin, setUserData, setIsLogged }) => {
                 const productData = await ProductoServices.getAllProduct();
                 setProductos(productData);
                 let idUsuario = localStorage.getItem("idUsuario");
-
                 if (idUsuario) {
                     const response = await UsuarioServices.getUserById(idUsuario);
-
                     setIsLogged(true);
-
                     setUserData(response);
                     if (response.rol === 1) {
                         setIsAdmin(true);
@@ -46,7 +43,7 @@ const Home = ({setIsAdmin, setUserData, setIsLogged }) => {
     };
     return (
         <>
-            <Carousel>
+            <Carousel className="carouselContainer">
                 <Carousel.Item interval={5000}>
                     <img className="d-block w-100" src={carouselImg1} alt="carousel1" />
                     <Carousel.Caption></Carousel.Caption>

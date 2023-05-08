@@ -13,7 +13,6 @@ const AdminPedidosDetalles = () => {
         async function retrievePedidoItems() {
             try {
                 const data = await PedidoService.getPedidoById(idPedido);
-                console.log(data);
                 data.pedidoItems.forEach(async (pedidoItem) => {
                     const productData = await ProductoServices.getProductById(pedidoItem.idProducto);
                     setPedidoItems((oldPedidoItems) => [
