@@ -9,17 +9,13 @@ const initialState = {
     descripcion: "",
     cantidad: "",
     precio: "",
-    categoria: ""
-}
+    categoria: "",
+};
 
 const AdminAnadirProducto = () => {
-
-
     const [productos, setProductos] = useState(initialState);
 
     const navigate = useNavigate();
-
-
 
     const handleOnChangeProduct = (e) => {
         setProductos({
@@ -32,7 +28,7 @@ const AdminAnadirProducto = () => {
         e.preventDefault();
         async function insertProduct() {
             try {
-                const response = await ProductoServices.createProduct(productos)
+                const response = await ProductoServices.createProduct(productos);
                 response.json().then((response) => setProductos(response));
                 Swal.fire("Producto añadido con éxito", "", "success");
                 navigate("/adminProductos");
@@ -52,8 +48,16 @@ const AdminAnadirProducto = () => {
                             NOMBRE
                         </label>
                         <div>
-                            <input id="nombre" name="nombre" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
-                                value={productos.nombre} />
+                            <input
+                                id="nombre"
+                                name="nombre"
+                                type="text"
+                                placeholder=""
+                                required
+                                className="formularioLoginInput"
+                                onChange={handleOnChangeProduct}
+                                value={productos.nombre}
+                            />
                         </div>
                     </div>
 
@@ -80,8 +84,16 @@ const AdminAnadirProducto = () => {
                             CANTIDAD
                         </label>
                         <div>
-                            <input id="cantidad" name="cantidad" type="number" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
-                                value={productos.cantidad} />
+                            <input
+                                id="cantidad"
+                                name="cantidad"
+                                type="number"
+                                placeholder=""
+                                required
+                                className="formularioLoginInput"
+                                onChange={handleOnChangeProduct}
+                                value={productos.cantidad}
+                            />
                         </div>
                     </div>
 
@@ -90,8 +102,16 @@ const AdminAnadirProducto = () => {
                             PRECIO
                         </label>
                         <div>
-                            <input id="precio" name="precio" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
-                                value={productos.precio} />
+                            <input
+                                id="precio"
+                                name="precio"
+                                type="text"
+                                placeholder=""
+                                required
+                                className="formularioLoginInput"
+                                onChange={handleOnChangeProduct}
+                                value={productos.precio}
+                            />
                         </div>
                     </div>
                     <div>
@@ -99,13 +119,25 @@ const AdminAnadirProducto = () => {
                             CATEGORÍA
                         </label>
                         <div>
-                            <input id="categoria" name="categoria" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
-                                value={productos.categoria} />
+                            <select
+                                id="categoria"
+                                name="categoria"
+                                className="formularioLoginInput"
+                                required
+                                onChange={handleOnChangeProduct}
+                                value={productos.categoria}
+                            >
+                                <option value="Medicamento">Medicamento</option>
+                                <option value="Droga">Droga</option>
+                                <option value="Salud">Salud</option>
+                                <option value="Sexo">Sexo</option>
+                                <option value="Comida">Comida</option>
+                            </select>
                         </div>
                     </div>
                     <div>
                         <button type="submit" className="btn btn-primary mt-4 w-100">
-                            <b style={{color: "white"}}>CONFRIMAR</b>
+                            <b style={{ color: "white" }}>CONFRIMAR</b>
                         </button>
                     </div>
                     <hr />
