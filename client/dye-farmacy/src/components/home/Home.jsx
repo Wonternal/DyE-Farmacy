@@ -66,17 +66,17 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                     <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            <p className="m-5">
+            <p className="containerFilter">
                 Filtrar por categoría{" "}
                 <select
                     id="categoria"
                     name="categoria"
-                    className="formularioLoginInput ml-2"
+                    className="formularioLoginInput ml-2 p-1"
                     required
                     onChange={handleOnChangeFilter}
                     value={categoriaSeleccionada}
                 >
-                    <option value="" disabled selected hidden>
+                    <option value="" disabled hidden>
                         Seleccione categoría
                     </option>
                     <option value="Medicamento">Medicamento</option>
@@ -87,7 +87,7 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                 </select>
                 <button
                     type="button"
-                    className="ml-2"
+                    className="btnFilter"
                     onClick={() => {
                         setProductos(productosSinFiltrar);
                         setCategoriaSeleccionada("");

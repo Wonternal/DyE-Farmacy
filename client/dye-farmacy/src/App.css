@@ -20,24 +20,29 @@
   --fondoImg: url("./assets/backgrounds/fondoOscuro.png");
 
 }
-.carouselContainer{
+
+.carouselContainer {
   background-color: var(--fondo);
 }
-.containerCestaButtons{
+
+.containerCestaButtons {
   background-color: var(--fondo);
   padding-bottom: 30px;
 }
-.btnContainerAdmin{
+
+.btnContainerAdmin {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   justify-content: center;
   background-color: var(--fondo);
 }
+
 p,
 b,
 span,
-input, h1 {
+input,select,
+h1 {
   color: var(--letras);
 }
 
@@ -48,6 +53,7 @@ input, h1 {
   height: 100px;
   background-color: var(--fondo);
 }
+
 .card-img-top {
   width: 100%;
   height: 220px;
@@ -79,6 +85,7 @@ input, h1 {
   height: 100px;
   background-color: var(--fondoFooter);
 }
+
 .containarImgTextAdmin {
   display: flex;
   flex-direction: column;
@@ -89,6 +96,7 @@ input, h1 {
 .homeContainer {
   height: 100vh;
 }
+
 .imgAdmin {
   width: 200px;
   height: 200px;
@@ -97,6 +105,7 @@ input, h1 {
   margin: 40px;
   padding: 20px;
 }
+
 .loginContainer {
   background-image: var(--fondoImg);
   height: 105vh;
@@ -125,14 +134,15 @@ input, h1 {
     padding: 20px;
     width: 90%;
   }
-.table-responsive {
-  overflow-x: auto;
-}
 
-.table td,
-.table th {
-  white-space: nowrap;
-}
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .table td,
+  .table th {
+    white-space: nowrap;
+  }
 
   .table td,
   .table th {
@@ -141,10 +151,10 @@ input, h1 {
   }
 }
 
-.table a{
-    text-decoration: none;
-    color: var(--colorVerdeFarmacia);
-  }
+.table a {
+  text-decoration: none;
+  color: var(--colorVerdeFarmacia);
+}
 
 .formularioLoginInput {
   width: 400px;
@@ -172,12 +182,16 @@ input, h1 {
 }
 
 .containerAdminLista {
-    background-image: var(--fondoImg);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-  }
+  background-image: var(--fondoImg);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
 
+.btnFilter{
+  background-color: var(--fondo);
+  margin-left: 10px;
+}
 
 
 .carrito-vacio {
@@ -193,6 +207,7 @@ input, h1 {
   font-weight: bold;
   text-align: center;
 }
+
 .productImg {
   height: 450px;
   width: 450px;
@@ -225,14 +240,17 @@ input, h1 {
   padding: 15px;
   font-size: 20px;
 }
+
 .tableAdminPedido {
   width: 70%;
   margin: 50px;
   padding: 20px;
 }
+
 .table {
   background-color: var(--grisClaroFondoCards);
 }
+
 .adminBtnEliminar {
   --bs-btn-color: #fff;
   --bs-btn-bg: #0d6efd;
@@ -322,6 +340,7 @@ input, h1 {
     flex-direction: column;
     height: auto;
   }
+
   .containerAdminLista {
     padding-top: 200px;
     display: flex;
@@ -329,13 +348,16 @@ input, h1 {
     flex-wrap: nowrap;
     justify-content: center;
   }
+
   .productImg {
     height: 300px;
     width: 300px;
   }
+
   .card-body-tarejta {
     height: 400px;
   }
+
   .textoCarritoContainer {
     background-color: var(--colorVerdeFarmacia);
     padding: 10px;
@@ -378,9 +400,11 @@ input, h1 {
     align-items: center;
   }
 }
-.text-center{
+
+.text-center {
   background-color: var(--fondo);
 }
+
 .textoCarritoContainer {
   background-color: var(--colorVerdeFarmacia);
   padding: 15px;
@@ -422,6 +446,14 @@ input, h1 {
   width: 35px;
 }
 
+.containerFilter{
+  padding: 20px;
+  background-color: var(--fondo);
+  margin: 0px;
+  display: flex;
+  align-items: center;
+}
+
 .btn-noClick {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
@@ -438,8 +470,7 @@ input, h1 {
   --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
     0 1px 1px rgba(0, 0, 0, 0.075);
   --bs-btn-disabled-opacity: 0.65;
-  --bs-btn-focus-box-shadow: 0 0 0 0.25rem
-    rgba(var(--bs-btn-focus-shadow-rgb), 0.5);
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), 0.5);
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
   font-family: var(--bs-btn-font-family);
@@ -458,10 +489,12 @@ input, h1 {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
 .card-body {
   width: 100%;
   height: 150px;
 }
+
 .card-body-tarejta {
   width: 100%;
   padding: 20px;
@@ -539,14 +572,11 @@ input, h1 {
   transform: scale(1.1);
 }
 
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
 * {
   scrollbar-width: auto;
   scrollbar-color: var(--colorVerdeFarmacia) #ffffff;
 }
 
-/* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 10px;
 }
