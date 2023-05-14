@@ -34,7 +34,14 @@ const DyEFarmacyApp = () => {
     return (
         <div>
             {isAdmin ? (
-                <HeaderAdmin isLogged={isLogged} setUserData={setUserData} setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} userData={userData} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode}
+                <HeaderAdmin
+                    isLogged={isLogged}
+                    setUserData={setUserData}
+                    setIsAdmin={setIsAdmin}
+                    setIsLogged={setIsLogged}
+                    userData={userData}
+                    setIsDarkMode={setIsDarkMode}
+                    isDarkMode={isDarkMode}
                 />
             ) : (
                 <Header isLogged={isLogged} userData={userData} setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
@@ -42,23 +49,15 @@ const DyEFarmacyApp = () => {
             <Routes>
                 {isAdmin ? (
                     <>
-                        <Route
-                            path="/"
-                            element={
-                                <AdminHome/>
-                            }
-                        ></Route>
+                        <Route path="/" element={<AdminHome />}></Route>
                         <Route path="/adminClientes" element={<AdminClients userData={userData} />}></Route>
 
-                        <Route path="/adminPedidos" element={<AdminPedidos userData={userData}/>}></Route>
-                        <Route
-                            path="/adminPedidos/:idPedido"
-                            element={<AdminPedidosDetalles />}
-                        ></Route>
-                        <Route path="/adminProductos" element={<AdminProductos userData={userData}/>}></Route>
-                        <Route path="/adminProducto/:idProducto" element={<AdminProductInfo/>}></Route>
-                        <Route path="/adminEditProducto/:idProducto" element={<AdminEdit/>}></Route>
-                        <Route path="/adminAñadirProducto/" element={<AdminAnadirProducto/>}></Route>
+                        <Route path="/adminPedidos" element={<AdminPedidos userData={userData} />}></Route>
+                        <Route path="/adminPedidos/:idPedido" element={<AdminPedidosDetalles />}></Route>
+                        <Route path="/adminProductos" element={<AdminProductos userData={userData} />}></Route>
+                        <Route path="/adminProducto/:idProducto" element={<AdminProductInfo />}></Route>
+                        <Route path="/adminEditProducto/:idProducto" element={<AdminEdit />}></Route>
+                        <Route path="/adminAñadirProducto/" element={<AdminAnadirProducto />}></Route>
                         <Route path="/adminClients/" element={<AdminClients userData={userData} />}></Route>
                         <Route
                             path="/cesta/:id"
@@ -67,32 +66,14 @@ const DyEFarmacyApp = () => {
                     </>
                 ) : (
                     <>
-                        <Route
-                            path="/"
-                            element={
-                                <Home
-                                    setIsLogged={setIsLogged}
-                                    setUserData={setUserData}
-                                    setIsAdmin={setIsAdmin}
-                                />
-                            }
-                        ></Route>
+                        <Route path="/" element={<Home setIsLogged={setIsLogged} setUserData={setUserData} setIsAdmin={setIsAdmin} />}></Route>
                         <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                         <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
-                        <Route
-                            path="/perfil"
-                            element={
-                                <PerfilUsuario
-                                    setIsLogged={setIsLogged}
-                                    userData={userData}
-                                    setUserData={setUserData}
-                                />
-                            }
-                        ></Route>
+                        <Route path="/perfil" element={<PerfilUsuario setIsLogged={setIsLogged} userData={userData} setUserData={setUserData} />}></Route>
                         <Route path="/producto/:idProducto" element={<Producto isLogged={isLogged} userData={userData} />}></Route>
                         <Route
                             path="/cesta/:id"
-                            element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} />}
+                            element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} isLogged={isLogged} />}
                         ></Route>
                         <Route
                             path="/envio"

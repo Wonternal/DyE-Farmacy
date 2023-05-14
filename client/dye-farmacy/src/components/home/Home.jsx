@@ -15,6 +15,7 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
     const carouselImg1 = require("../../assets/carousel/carousel1.jpg");
     const carouselImg2 = require("../../assets/carousel/carousel2.jpg");
     const carouselImg3 = require("../../assets/carousel/CAROUSEL3.jpg");
+    const [searchItemInput, setSearchItemInput] = useState("");
 
     const navigate = useNavigate();
 
@@ -41,6 +42,7 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
         }
         retriveProductos();
     }, []);
+
     const linkToProduct = (id) => {
         navigate(`/producto/${id}`);
     };
@@ -50,6 +52,17 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
         let productosFiltrados = productosSinFiltrar.filter((producto) => producto.categoria == e.target.value);
         setProductos(productosFiltrados);
     };
+
+    const handleOnChangeSearchItem = (e) => {
+        setSearchItemInput(e.target.value);
+    };
+
+    const searchProducts = () => {
+        console.log(searchItemInput);
+        let productosFiltrados = productosSinFiltrar.filter((producto) => producto?.nombre?.toLowerCase().includes(searchItemInput.toLowerCase()));
+        setProductos(productosFiltrados);
+    };
+
     return (
         <>
             <Carousel className="carouselContainer">
@@ -66,6 +79,31 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                     <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
+            <div className="ml-3 p-1">
+                <span>Buscar producto: </span>
+                <input
+                    id="searchInput"
+                    name="searchInput"
+                    type="text"
+                    placeholder="Busca entre más de 30000 referencias..."
+                    className="formularioLoginInput ml-2"
+                    onChange={handleOnChangeSearchItem}
+                    value={searchItemInput}
+                />
+                <button type="button" className="ml-2 btnFilter" onClick={searchProducts}>
+                    <b>Buscar</b>
+                </button>
+                <button
+                    type="button"
+                    className="ml-2 btnFilter"
+                    onClick={() => {
+                        setProductos(productosSinFiltrar);
+                        setSearchItemInput("");
+                    }}
+                >
+                    <b>X</b>
+                </button>
+            </div>
             <p className="containerFilter">
                 Filtrar por categoría{" "}
                 <select

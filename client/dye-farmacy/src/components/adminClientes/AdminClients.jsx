@@ -3,14 +3,12 @@ import UsuarioServices from "../../services/usuario.service";
 import { Link } from "react-router-dom";
 
 const AdminClients = ({ userData }) => {
-
     const [usuario, setUsuarios] = useState([]);
-
 
     useEffect(() => {
         async function retriveUsuarios() {
             try {
-                const usuarioData = await UsuarioServices.getAllUser()
+                const usuarioData = await UsuarioServices.getAllUser();
                 setUsuarios(usuarioData);
             } catch (error) {
                 console.log(error);
@@ -21,10 +19,10 @@ const AdminClients = ({ userData }) => {
 
     return (
         <>
-            <div class="containerAdminLista" style={{overflowX: "auto"}}>  
-                <div class="tableAdminPedido">
-                    <div class="table-responsive">
-                        <table class="table">
+            <div className="containerAdminLista" style={{ overflowX: "auto" }}>
+                <div className="tableAdminPedido">
+                    <div className="table-responsive">
+                        <table className="table">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
@@ -34,22 +32,23 @@ const AdminClients = ({ userData }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {
-                                    usuario.map(({ idUsuario, nombre, apellidos, email }, index) => (
-                                        <tr key={index}>
-                                            <th scope="row">{idUsuario}</th>
-                                            <td>{nombre} {apellidos}</td>
-                                            <td>{email}</td>
-                                            <td><Link to={`/cesta/${idUsuario}`}>VER CARRITO</Link></td>
-                                        </tr>
-                                    ))
-                                }
+                                {usuario.map(({ idUsuario, nombre, apellidos, email }, index) => (
+                                    <tr key={index}>
+                                        <th scope="row">{idUsuario}</th>
+                                        <td>
+                                            {nombre} {apellidos}
+                                        </td>
+                                        <td>{email}</td>
+                                        <td>
+                                            <Link to={`/cesta/${idUsuario}`}>VER CARRITO</Link>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
         </>
     );
 };

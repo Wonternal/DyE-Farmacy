@@ -127,6 +127,9 @@ const AdminAnadirProducto = () => {
                                 onChange={handleOnChangeProduct}
                                 value={productos.categoria}
                             >
+                                <option value="" disabled hidden>
+                                    Seleccione categoría
+                                </option>
                                 <option value="Medicamento">Medicamento</option>
                                 <option value="Droga">Droga</option>
                                 <option value="Salud">Salud</option>
