@@ -115,40 +115,11 @@ h1 {
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
-  .loginContainer {
-    height: auto;
-    min-height: 100vh;
-  }
-}
-
 .formularioLogin {
   padding: 50px;
   background-color: white;
   border-radius: 4px;
   background-color: var(--fondo);
-}
-
-@media screen and (max-width: 768px) {
-  .formularioLogin {
-    padding: 20px;
-    width: 90%;
-  }
-
-  .table-responsive {
-    overflow-x: auto;
-  }
-
-  .table td,
-  .table th {
-    white-space: nowrap;
-  }
-
-  .table td,
-  .table th {
-    display: block;
-    text-align: center;
-  }
 }
 
 .table a {
@@ -167,11 +138,14 @@ h1 {
   background-color: var(--fondo);
 }
 
-@media screen and (max-width: 768px) {
-  .formularioLoginInput {
-    width: 100%;
-    max-width: 400px;
-  }
+.formularioSearch {
+  height: 40px;
+  padding: 10px;
+  border-radius: 0px;
+  border: 1px solid var(--letras);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: var(--fondo);
 }
 
 .containerAdmin {
@@ -191,6 +165,17 @@ h1 {
 .btnFilter{
   background-color: var(--fondo);
   margin-left: 10px;
+  padding: 7px;
+  border: 1px solid var(--letras);
+}
+
+
+.btnCancel{
+  background-color: var(--fondo);
+  margin-left: 10px;
+  padding: 7px;
+  border: 1px solid var(--letras);
+  width: 5%;
 }
 
 
@@ -335,6 +320,38 @@ h1 {
 }
 
 @media (max-width: 767px) {
+    .formularioLogin {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .table td,
+  .table th {
+    white-space: nowrap;
+  }
+
+  .table td,
+  .table th {
+    display: block;
+    text-align: center;
+  }
+  .loginContainer {
+    height: auto;
+    min-height: 100vh;
+  }
+  .formularioLoginInput {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .formularioSearch {
+    width: 100%;
+    max-width: 400px;
+  }
   .containerAdmin {
     display: flex;
     flex-direction: column;
@@ -424,8 +441,8 @@ h1 {
 
 .helpButton {
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 20px;
+  bottom: 20px;
   height: 70px;
   width: 70px;
   background-color: var(--azulLetrasLightMode);
@@ -453,6 +470,15 @@ h1 {
   display: flex;
   align-items: center;
 }
+.containerSearch{
+  padding: 20px;
+  background-color: var(--fondo);
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .btn-noClick {
   --bs-btn-padding-x: 0.75rem;
@@ -507,6 +533,7 @@ h1 {
   justify-content: space-evenly;
   background-color: var(--fondo);
 }
+
 
 .productCard {
   margin: 30px;

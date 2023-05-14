@@ -65,6 +65,30 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
 
     return (
         <>
+            <div className="containerSearch">
+                <input
+                    id="searchInput"
+                    name="searchInput"
+                    type="text"
+                    placeholder="Busca entre más de 30000 referencias..."
+                    className="formularioSearch ml-2 w-75"
+                    onChange={handleOnChangeSearchItem}
+                    value={searchItemInput}
+                />
+                <button type="button" className="btnFilter w-25" onClick={searchProducts}>
+                    <b>Buscar</b>
+                </button>
+                <button
+                    type="button"
+                    className="ml-2 btnCancel"
+                    onClick={() => {
+                        setProductos(productosSinFiltrar);
+                        setSearchItemInput("");
+                    }}
+                >
+                    <b>X</b>
+                </button>
+            </div>
             <Carousel className="carouselContainer">
                 <Carousel.Item interval={5000}>
                     <img className="d-block w-100" src={carouselImg1} alt="carousel1" />
@@ -79,37 +103,12 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                     <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-            <div className="ml-3 p-1">
-                <span>Buscar producto: </span>
-                <input
-                    id="searchInput"
-                    name="searchInput"
-                    type="text"
-                    placeholder="Busca entre más de 30000 referencias..."
-                    className="formularioLoginInput ml-2"
-                    onChange={handleOnChangeSearchItem}
-                    value={searchItemInput}
-                />
-                <button type="button" className="ml-2 btnFilter" onClick={searchProducts}>
-                    <b>Buscar</b>
-                </button>
-                <button
-                    type="button"
-                    className="ml-2 btnFilter"
-                    onClick={() => {
-                        setProductos(productosSinFiltrar);
-                        setSearchItemInput("");
-                    }}
-                >
-                    <b>X</b>
-                </button>
-            </div>
             <p className="containerFilter">
                 Filtrar por categoría{" "}
                 <select
                     id="categoria"
                     name="categoria"
-                    className="formularioLoginInput ml-2 p-1"
+                    className="formularioSearch ml-2 p-1"
                     required
                     onChange={handleOnChangeFilter}
                     value={categoriaSeleccionada}
@@ -118,7 +117,6 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                         Seleccione categoría
                     </option>
                     <option value="Medicamento">Medicamento</option>
-                    <option value="Droga">Droga</option>
                     <option value="Salud">Salud</option>
                     <option value="Sexo">Sexo</option>
                     <option value="Comida">Comida</option>

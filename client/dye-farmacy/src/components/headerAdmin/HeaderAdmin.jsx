@@ -45,7 +45,7 @@ const HeaderAdmin = ({ setIsLogged, userData, setUserData, setIsAdmin, isDarkMod
                             {userData.nombre}
                         </span>
                     </div>
-                    <button onClick={logout}>Cerrar</button>
+                    <button onClick={logout} className="btnFilter"><span>Cerrar</span></button>
                 </div>
             </div>
         </>

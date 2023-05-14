@@ -122,7 +122,7 @@ const AdminAnadirProducto = () => {
                             <select
                                 id="categoria"
                                 name="categoria"
-                                className="formularioLoginInput"
+                                className="formularioLoginInput p-1"
                                 required
                                 onChange={handleOnChangeProduct}
                                 value={productos.categoria}
@@ -131,7 +131,6 @@ const AdminAnadirProducto = () => {
                                     Seleccione categoría
                                 </option>
                                 <option value="Medicamento">Medicamento</option>
-                                <option value="Droga">Droga</option>
                                 <option value="Salud">Salud</option>
                                 <option value="Sexo">Sexo</option>
                                 <option value="Comida">Comida</option>

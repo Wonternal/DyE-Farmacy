@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import ProductoServices from "../../services/producto.service";
 import Swal from "sweetalert2";
 
-const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito, isLogged }) => {
+const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito, isLogged, isAdmin }) => {
     const { id } = useParams();
     const [carritoItems, setCarritoItems] = useState([]);
     const iconoCestaEmoty = require("../../assets/dark/carrito-vacio.png");
@@ -130,11 +130,17 @@ const Cesta = ({ precioTotalCarrito, setPrecioTotalCarrito, isLogged }) => {
                         <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito?.toFixed(2)}€</h1>
                         <div className="container">
                             <div className="carritoBtn">
-                                <Link to={"/envio"} className="registerLink">
+                                {
+                                    isAdmin ? <Link to={"/"} className="registerLink">
+                                    <button type="button" className="btn btn-primary w-100">
+                                        <b>Solo pueden realizar pedidos clientes</b>
+                                    </button>
+                                </Link> : <Link to={"/envio"} className="registerLink">
                                     <button type="button" className="btn btn-primary w-100">
                                         <b>Realizar pedido</b>
                                     </button>
                                 </Link>
+                                }
                             </div>
                         </div>
                     </div>
