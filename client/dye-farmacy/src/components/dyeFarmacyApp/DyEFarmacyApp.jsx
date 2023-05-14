@@ -61,7 +61,7 @@ const DyEFarmacyApp = () => {
                         <Route path="/adminClients/" element={<AdminClients userData={userData} />}></Route>
                         <Route
                             path="/cesta/:id"
-                            element={<AdminCestaClienteUser precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} />}
+                            element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} isLogged={isLogged} isAdmin={isAdmin} />}
                         ></Route>
                     </>
                 ) : (
@@ -73,7 +73,7 @@ const DyEFarmacyApp = () => {
                         <Route path="/producto/:idProducto" element={<Producto isLogged={isLogged} userData={userData} />}></Route>
                         <Route
                             path="/cesta/:id"
-                            element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} isLogged={isLogged} />}
+                            element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} isLogged={isLogged} isAdmin={isAdmin} />}
                         ></Route>
                         <Route
                             path="/envio"

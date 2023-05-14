@@ -54,8 +54,8 @@ const AdminPedidosDetalles = () => {
                                 <tr key={index}>
                                     <td>{pedidoItem.nombre}</td>
                                     <td>{pedidoItem.categoria}</td>
-                                    <td>{pedidoItem.precio}</td>
-                                    <td>{pedidoItem.cantidad} €</td>
+                                    <td>{pedidoItem.precio} €</td>
+                                    <td>{pedidoItem.cantidad}</td>
                                 </tr>
                             ))}
                         </tbody>

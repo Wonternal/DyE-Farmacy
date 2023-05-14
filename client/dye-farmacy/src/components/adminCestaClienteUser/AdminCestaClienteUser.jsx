@@ -71,7 +71,6 @@ const AdminCestaClienteUser = ({ precioTotalCarrito, setPrecioTotalCarrito }) =>
                         </div>
                     );
                 })}
-            </div>
             {precioTotalCarrito <= 0 ? (
                 <div className="carrito-vacio">
                     <img src={iconoCestaEmoty} style={{ height: "450px" }} alt="" />
@@ -81,6 +80,7 @@ const AdminCestaClienteUser = ({ precioTotalCarrito, setPrecioTotalCarrito }) =>
                     <h1 className="text-center">Total (Impuestos incluidos) {precioTotalCarrito?.toFixed(2)}€</h1>
                 </>
             )}
+            </div>
         </>
     );
 };
