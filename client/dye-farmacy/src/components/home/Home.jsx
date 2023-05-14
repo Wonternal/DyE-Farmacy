@@ -58,7 +58,6 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
     };
 
     const searchProducts = () => {
-        console.log(searchItemInput);
         let productosFiltrados = productosSinFiltrar.filter((producto) => producto?.nombre?.toLowerCase().includes(searchItemInput.toLowerCase()));
         setProductos(productosFiltrados);
     };
