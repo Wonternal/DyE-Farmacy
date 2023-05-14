@@ -21,7 +21,6 @@ import AdminProductos from "../adminProductos/AdminProductos";
 import AdminProductInfo from "../adminProductInfo/AdminProductInfo";
 import AdminEdit from "../adminEdit/AdminEdit";
 import AdminAnadirProducto from "../adminAnadirProducto/AdminAnadirProducto";
-import AdminCestaClienteUser from "../adminCestaClienteUser/AdminCestaClienteUser";
 import AdminPedidosDetalles from "../adminPedidosDetalles/AdminPedidosDetalles";
 
 const DyEFarmacyApp = () => {
