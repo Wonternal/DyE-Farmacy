@@ -55,10 +55,10 @@ public class InitDatabase implements CommandLineRunner{
 				+ "Contiene 16 comprimidos.", 9.34f, 200, "Medicamento", new HashSet<CarritoItem>(), new HashSet<PedidoItem>(), "sonador.png");
 		Producto tusclinJarabe = new Producto("Tusclin Jarabe", "Jarabe a base de plantas para el tratamiento de la tos productiva en adultos y niños a partir de 2 años.\r\n"
 				+ "\r\n"
-				+ "Contiene 100 ml.", 7.38f, 200, "Medicamento", new HashSet<CarritoItem>(), new HashSet<PedidoItem>(), "boiron.png");
+				+ "Contiene 100 ml.", 7.38f, 200, "Medicamento", new HashSet<CarritoItem>(), new HashSet<PedidoItem>(), "Tusclin-Jarabe.png");
 		Producto boiron = new Producto("BOIRON Avenoc Pomada 30 Gr", "Medicamento homeopático para el tratamiento de las hemorroides que se manifiestan por crisis dolorosas, prurito y pequeños sangrados.\r\n"
 				+ "\r\n"
-				+ "Contiene 30 gr.", 9.99f, 200, "Medicamento", new HashSet<CarritoItem>(), new HashSet<PedidoItem>(), "orliloss.png");
+				+ "Contiene 30 gr.", 9.99f, 200, "Medicamento", new HashSet<CarritoItem>(), new HashSet<PedidoItem>(), "boiron.png");
 		Producto durexPack = new Producto("Durex Pack Placer Intenso 2X12 Unidades", "Durex Pack Placer Intenso - Durex Preservativos Mutual Climax + Durex Preservativos Intense - 24 Condones", 13.99f, 200, "Sexo", new HashSet<CarritoItem>(), new HashSet<PedidoItem>(), "durexPack.png");
 		Producto durexDamePlacer = new Producto("Durex + Lubricante", "Es un pack de la marca Durex que incluye: Durex Dame Placer 12 unidades + Durex Play Lubricante Fresa.", 4.24f, 200, "Sexo", new HashSet<CarritoItem>(), new HashSet<PedidoItem>(), "durex.png");
 		Producto satisfyer = new Producto("Satisfyer Vibrator Vibe Master", "Satisfyer son juguetes con estilo, 100% diseño y tecnología alemana para un placer total! La combinación de un potente motor, con la suavidad de la silicona y el efecto liquid silicone que ha desarrollado satisfyer convierte a los productos Vibes en lujo al alcance de todos. Potentes vibraciones distribuidas por todo el cuerpo del vibrador y diseñado para incrementar.", 35.95f, 200, "Sexo", new HashSet<CarritoItem>(), new HashSet<PedidoItem>(), "satisfayer.png");
