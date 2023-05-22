@@ -74,36 +74,6 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                     onChange={handleOnChangeSearchItem}
                     value={searchItemInput}
                 />
-                <button type="button" className="btnFilter w-25" onClick={searchProducts}>
-                    <b>Buscar</b>
-                </button>
-                <button
-                    type="button"
-                    className="ml-2 btnCancel"
-                    onClick={() => {
-                        setProductos(productosSinFiltrar);
-                        setSearchItemInput("");
-                    }}
-                >
-                    <b>X</b>
-                </button>
-            </div>
-            <Carousel className="carouselContainer">
-                <Carousel.Item interval={5000}>
-                    <img className="d-block w-100" src={carouselImg1} alt="carousel1" />
-                    <Carousel.Caption></Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={5000}>
-                    <img className="d-block w-100" src={carouselImg2} alt="carousel2" />
-                    <Carousel.Caption></Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item interval={5000}>
-                    <img className="d-block w-100" src={carouselImg3} alt="carousel3" />
-                    <Carousel.Caption></Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
-            <p className="containerFilter">
-                Filtrar por categoría{" "}
                 <select
                     id="categoria"
                     name="categoria"
@@ -120,17 +90,36 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                     <option value="Sexo">Sexo</option>
                     <option value="Comida">Comida</option>
                 </select>
+                <button type="button" className="btnFilter w-25" onClick={searchProducts}>
+                    <b>Buscar</b>
+                </button>
                 <button
                     type="button"
                     className="btnFilter"
                     onClick={() => {
                         setProductos(productosSinFiltrar);
                         setCategoriaSeleccionada("");
+                        setSearchItemInput("");
                     }}
                 >
-                    <b>Quitar filtro</b>
+                    {window.innerWidth>= 767 ? <b>Quitar filtro</b> : <b>X</b>}
                 </button>
-            </p>
+            </div>
+
+            <Carousel className="carouselContainer">
+                <Carousel.Item interval={5000}>
+                    <img className="d-block w-100" src={carouselImg1} alt="carousel1" />
+                    <Carousel.Caption></Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={5000}>
+                    <img className="d-block w-100" src={carouselImg2} alt="carousel2" />
+                    <Carousel.Caption></Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item interval={5000}>
+                    <img className="d-block w-100" src={carouselImg3} alt="carousel3" />
+                    <Carousel.Caption></Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
 
             <div className="productCardContainer">
                 {productos.map((producto) => {
@@ -139,9 +128,9 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                             <div className="productContent">
                                 <div onClick={() => linkToProduct(producto.idProducto)} style={{ cursor: "pointer" }}>
                                     {producto?.foto ? (
-                                        <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/${producto?.foto}`} alt="" />
+                                        <img className="card-img-top" src={`http://localhost:8181/api/v1/producto/uploads/img/${producto?.foto}`} alt="" />
                                     ) : (
-                                        <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
+                                        <img className="card-img-top" src={`http://localhost:8181/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
                                     )}
                                     <div className="card-body">
                                         <h3 className="card-title">{producto.nombre}</h3>

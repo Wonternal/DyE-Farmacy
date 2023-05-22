@@ -132,8 +132,22 @@ const AdminEdit = () => {
                             CATEGORÍA
                         </label>
                         <div>
-                            <input id="categoria" name="categoria" type="text" placeholder="" required className="formularioLoginInput" onChange={handleOnChangeProduct}
-                                value={productos.categoria}/>
+                            <select
+                                id="categoria"
+                                name="categoria"
+                                className="formularioLoginInput p-1"
+                                required
+                                onChange={handleOnChangeProduct}
+                                value={productos.categoria}
+                            >
+                                <option value="" disabled hidden>
+                                    Seleccione categoría
+                                </option>
+                                <option value="Medicamento">Medicamento</option>
+                                <option value="Salud">Salud</option>
+                                <option value="Sexo">Sexo</option>
+                                <option value="Comida">Comida</option>
+                            </select>
                         </div>
                     </div>
 
