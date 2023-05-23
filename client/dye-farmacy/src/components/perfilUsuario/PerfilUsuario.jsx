@@ -1,22 +1,12 @@
-import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const PerfilUsuario = ({ setIsLogged, userData, setUserData }) => {
     const iconoLogin = require("../../assets/light/user (2).png");
     const iconoLogout = require("../../assets/light/logout-white.png");
-    const iconoEye = require("../../assets/dark/eye.png");
-    const [verPassword, setVerPassword] = useState(false);
 
     const navigate = useNavigate();
 
-    const retrievePassword = () => {
-        let passwordOcutlo = "";
-        for (let i = 0; i < userData.password.length; i++) {
-            passwordOcutlo += "*";
-        }
-        return passwordOcutlo;
-    };
     const logout = () => {
         setIsLogged(false);
         setUserData({});
@@ -48,13 +38,6 @@ const PerfilUsuario = ({ setIsLogged, userData, setUserData }) => {
                     <div>
                         <label className="text-secondary">EMAIL</label>
                         <p>{userData.email}</p>
-                    </div>
-                    <div>
-                        <label className="text-secondary">CONTRASEÑA</label>
-                        <div style={{ display: "flex" }}>
-                            <p>{verPassword ? userData.password : retrievePassword()}</p>
-                            <img className="iconoBotonVerPassword mr-5" src={iconoEye} alt="" onClick={() => setVerPassword(!verPassword)} />
-                        </div>
                     </div>
                     <hr />
                     <div>

@@ -4,7 +4,6 @@ import PedidoService from "../../services/pedido.service";
 import Swal from "sweetalert2";
 
 const FormularioPagoTarjeta = ({ precioTotalCarrito, userData }) => {
-
     const initialInputsData = {
         idUsuario: userData.idUsuario,
         precioTotal: precioTotalCarrito,
@@ -56,7 +55,7 @@ const FormularioPagoTarjeta = ({ precioTotalCarrito, userData }) => {
     return (
         <>
             <div className="loginContainer">
-                <form className="formularioLogin" onSubmit={handleOnSubmit} >
+                <form className="formularioLogin" onSubmit={handleOnSubmit}>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <b htmlFor="text" style={{ fontSize: 24 }} className="mb-3">
                             TOTAL DEL IMPORTE {precioTotalCarrito} €
@@ -71,12 +70,12 @@ const FormularioPagoTarjeta = ({ precioTotalCarrito, userData }) => {
                                             <h2 className="mb-0">
                                                 <span className="btn btn-light btn-block text-left p-3 rounded-0">
                                                     <div className="d-flex align-items-center justify-content-between">
-                                                        <span style={{color: "black"}}>TAREJTA DE CRÉDITO</span>
+                                                        <span style={{ color: "black" }}>TAREJTA DE CRÉDITO</span>
                                                         <div className="icons">
                                                             <img src="https://i.imgur.com/2ISgYja.png" width="30" alt="" />
-                                                            <img src="https://i.imgur.com/W1vtnOV.png" width="30" alt=""/>
-                                                            <img src="https://i.imgur.com/35tC99g.png" width="30" alt=""/>
-                                                            <img src="https://i.imgur.com/2ISgYja.png" width="30" alt=""/>
+                                                            <img src="https://i.imgur.com/W1vtnOV.png" width="30" alt="" />
+                                                            <img src="https://i.imgur.com/35tC99g.png" width="30" alt="" />
+                                                            <img src="https://i.imgur.com/2ISgYja.png" width="30" alt="" />
                                                         </div>
                                                     </div>
                                                 </span>
@@ -84,17 +83,22 @@ const FormularioPagoTarjeta = ({ precioTotalCarrito, userData }) => {
                                         </div>
                                         <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                             <div className="card-body-tarejta payment-card-body">
-                                                <span className="font-weight-normal card-text" style={{color: "black"}}>NÚMERO DE LA TARJETA</span>
+                                                <span className="font-weight-normal card-text" style={{ color: "black" }}>
+                                                    NÚMERO DE LA TARJETA
+                                                </span>
                                                 <div className="input">
                                                     <i className="fa fa-credit-card"></i>
-                                                    <input type="number" className="form-control" required placeholder="0000 0000 0000 0000"/>
+                                                    <input type="number" className="form-control" required placeholder="0000 0000 0000 0000" />
                                                 </div>
                                                 <div className="row mt-3 mb-3">
                                                     <div className="col-md-6">
-                                                        <span className="font-weight-normal card-text" style={{color: "black"}}>FECHA ED CADUCIDAD</span>
+                                                        <span className="font-weight-normal card-text" style={{ color: "black" }}>
+                                                            FECHA DE CADUCIDAD
+                                                        </span>
                                                         <div className="input">
                                                             <i className="fa fa-calendar"></i>
-                                                            <input className="form-control mb-2"
+                                                            <input
+                                                                className="form-control mb-2"
                                                                 type="number"
                                                                 id="mes"
                                                                 placeholder="MM"
@@ -103,7 +107,8 @@ const FormularioPagoTarjeta = ({ precioTotalCarrito, userData }) => {
                                                                 value={mes}
                                                                 onChange={manejarCambioMes}
                                                             />
-                                                            <input className="form-control"
+                                                            <input
+                                                                className="form-control"
                                                                 type="number"
                                                                 id="anio"
                                                                 placeholder="YY"
@@ -115,7 +120,9 @@ const FormularioPagoTarjeta = ({ precioTotalCarrito, userData }) => {
                                                         </div>
                                                     </div>
                                                     <div className="col-md-6">
-                                                        <span className="font-weight-normal card-text" style={{color: "black"}}>CVC/CVV</span>
+                                                        <span className="font-weight-normal card-text" style={{ color: "black" }}>
+                                                            CVC/CVV
+                                                        </span>
                                                         <div className="input">
                                                             <i className="fa fa-lock"></i>
                                                             <input type="number" className="form-control" required placeholder="000" max={999} />
