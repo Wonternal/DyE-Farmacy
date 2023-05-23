@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import UsuarioServices from "../../services/usuario.service";
 import Login from "../login/Login";
 import Register from "../register/Register";
 import Header from "../header/Header";
@@ -29,6 +29,23 @@ const DyEFarmacyApp = () => {
     const [userData, setUserData] = useState();
     const [precioTotalCarrito, setPrecioTotalCarrito] = useState(0.0);
     const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+        async function checkUsuario() {
+            let idUsuario = localStorage.getItem("idUsuario");
+            if (idUsuario) {
+                const response = await UsuarioServices.getUserById(idUsuario);
+                setIsLogged(true);
+                setUserData(response);
+                if (response.rol === 1) {
+                    setIsAdmin(true);
+                } else {
+                    setIsAdmin(false);
+                }
+            }
+        }
+        checkUsuario();
+    }, []);
 
     return (
         <div>
@@ -60,7 +77,14 @@ const DyEFarmacyApp = () => {
                         <Route path="/adminClients/" element={<AdminClients userData={userData} />}></Route>
                         <Route
                             path="/cesta/:id"
-                            element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} isLogged={isLogged} isAdmin={isAdmin} />}
+                            element={
+                                <Cesta
+                                    precioTotalCarrito={precioTotalCarrito}
+                                    setPrecioTotalCarrito={setPrecioTotalCarrito}
+                                    isLogged={isLogged}
+                                    isAdmin={isAdmin}
+                                />
+                            }
                         ></Route>
                     </>
                 ) : (
@@ -72,7 +96,14 @@ const DyEFarmacyApp = () => {
                         <Route path="/producto/:idProducto" element={<Producto isLogged={isLogged} userData={userData} />}></Route>
                         <Route
                             path="/cesta/:id"
-                            element={<Cesta precioTotalCarrito={precioTotalCarrito} setPrecioTotalCarrito={setPrecioTotalCarrito} isLogged={isLogged} isAdmin={isAdmin} />}
+                            element={
+                                <Cesta
+                                    precioTotalCarrito={precioTotalCarrito}
+                                    setPrecioTotalCarrito={setPrecioTotalCarrito}
+                                    isLogged={isLogged}
+                                    isAdmin={isAdmin}
+                                />
+                            }
                         ></Route>
                         <Route
                             path="/envio"

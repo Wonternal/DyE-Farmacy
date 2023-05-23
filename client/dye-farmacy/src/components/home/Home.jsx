@@ -102,7 +102,7 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                         setSearchItemInput("");
                     }}
                 >
-                    {window.innerWidth>= 767 ? <b>Quitar filtro</b> : <b>X</b>}
+                    <b>X</b>
                 </button>
             </div>
 
@@ -120,7 +120,13 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                     <Carousel.Caption></Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
-
+            {productos.length < 1 && (
+                <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
+                    <div className="alert alert-info col-2 text-centered d-flex justify-content-center" role="alert">
+                        <b>No hay productos</b>
+                    </div>
+                </div>
+            )}
             <div className="productCardContainer">
                 {productos.map((producto) => {
                     return (
