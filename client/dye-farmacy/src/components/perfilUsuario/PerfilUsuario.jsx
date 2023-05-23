@@ -28,16 +28,16 @@ const PerfilUsuario = ({ setIsLogged, userData, setUserData }) => {
                     <hr />
                     <div>
                         <label className="text-secondary">NOMBRE</label>
-                        <p>{userData.nombre}</p>
+                        <p>{userData?.nombre}</p>
                     </div>
 
                     <div>
                         <label className="text-secondary">APELLIDOS</label>
-                        <p>{userData.apellidos}</p>
+                        <p>{userData?.apellidos}</p>
                     </div>
                     <div>
                         <label className="text-secondary">EMAIL</label>
-                        <p>{userData.email}</p>
+                        <p>{userData?.email}</p>
                     </div>
                     <hr />
                     <div>

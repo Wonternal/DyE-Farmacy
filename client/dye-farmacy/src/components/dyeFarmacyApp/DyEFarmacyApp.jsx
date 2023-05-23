@@ -109,7 +109,7 @@ const DyEFarmacyApp = () => {
                             path="/envio"
                             element={<FormularioPago precioTotalCarrito={precioTotalCarrito} userData={userData} setUserData={setUserData} />}
                         ></Route>
-                        <Route path="/cofirmarPago" element={<FormularioPagoTarjeta precioTotalCarrito={precioTotalCarrito} userData={userData} />}></Route>
+                        <Route path="/confirmarPago" element={<FormularioPagoTarjeta precioTotalCarrito={precioTotalCarrito} userData={userData} />}></Route>
                     </>
                 )}
             </Routes>

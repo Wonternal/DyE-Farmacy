@@ -58,7 +58,7 @@ const FormularioPagoTarjeta = ({ precioTotalCarrito, userData }) => {
                 <form className="formularioLogin" onSubmit={handleOnSubmit}>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <b htmlFor="text" style={{ fontSize: 24 }} className="mb-3">
-                            TOTAL DEL IMPORTE {precioTotalCarrito} €
+                            TOTAL DEL IMPORTE {precioTotalCarrito.toFixed(2)} €
                         </b>
                     </div>
                     <div>

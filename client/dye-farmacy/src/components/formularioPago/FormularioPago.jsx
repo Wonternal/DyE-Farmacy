@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UsuarioServices from "../../services/usuario.service";
 
-const FormularioPago = ({userData, setUserData }) => {
+const FormularioPago = ({ userData, setUserData }) => {
     const navigate = useNavigate();
 
     const [inputsDataUser, setinputsDataUser] = useState(userData);
@@ -19,8 +19,8 @@ const FormularioPago = ({userData, setUserData }) => {
         async function insertPedido() {
             try {
                 await UsuarioServices.editUser(inputsDataUser);
-                setUserData(await UsuarioServices.getUserById(userData.idUsuario));
-                navigate("/cofirmarPago");
+                setUserData(await UsuarioServices.getUserById(userData?.idUsuario));
+                navigate("/confirmarPago");
             } catch (error) {
                 console.log(error);
             }
@@ -45,7 +45,7 @@ const FormularioPago = ({userData, setUserData }) => {
                                 required
                                 className="formularioLoginInput"
                                 onChange={handleOnChangeUser}
-                                value={inputsDataUser.telefono}
+                                value={inputsDataUser?.telefono}
                             />
                         </div>
                     </div>
@@ -63,7 +63,7 @@ const FormularioPago = ({userData, setUserData }) => {
                                 required
                                 className="formularioLoginInput"
                                 onChange={handleOnChangeUser}
-                                value={inputsDataUser.direccion}
+                                value={inputsDataUser?.direccion}
                             />
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const FormularioPago = ({userData, setUserData }) => {
                                 required
                                 className="formularioLoginInput"
                                 onChange={handleOnChangeUser}
-                                value={inputsDataUser.codigoPostal}
+                                value={inputsDataUser?.codigoPostal}
                             />
                         </div>
                     </div>
@@ -99,7 +99,7 @@ const FormularioPago = ({userData, setUserData }) => {
                                 required
                                 className="formularioLoginInput"
                                 onChange={handleOnChangeUser}
-                                value={inputsDataUser.ciudad}
+                                value={inputsDataUser?.ciudad}
                             />
                         </div>
                     </div>
@@ -117,13 +117,13 @@ const FormularioPago = ({userData, setUserData }) => {
                                 required
                                 className="formularioLoginInput"
                                 onChange={handleOnChangeUser}
-                                value={inputsDataUser.pais}
+                                value={inputsDataUser?.pais}
                             />
                         </div>
                     </div>
                     <div>
                         <button type="submit" className="btn btn-primary mt-4 w-100">
-                            <b style={{color :"white"}}>CONFRIMAR DATOS DE ENVIO</b>
+                            <b style={{ color: "white" }}>CONFRIMAR DATOS DE ENVIO</b>
                         </button>
                     </div>
                     <hr />
