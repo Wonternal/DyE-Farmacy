@@ -128,9 +128,9 @@ const Home = ({ setIsAdmin, setUserData, setIsLogged }) => {
                             <div className="productContent">
                                 <div onClick={() => linkToProduct(producto.idProducto)} style={{ cursor: "pointer" }}>
                                     {producto?.foto ? (
-                                        <img className="card-img-top" src={`http://localhost:8181/api/v1/producto/uploads/img/${producto?.foto}`} alt="" />
+                                        <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/${producto?.foto}`} alt="" />
                                     ) : (
-                                        <img className="card-img-top" src={`http://localhost:8181/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
+                                        <img className="card-img-top" src={`http://localhost:8080/api/v1/producto/uploads/img/defaultFoto.png`} alt="" />
                                     )}
                                     <div className="card-body">
                                         <h3 className="card-title">{producto.nombre}</h3>
