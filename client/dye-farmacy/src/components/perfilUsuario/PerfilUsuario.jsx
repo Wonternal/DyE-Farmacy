@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const PerfilUsuario = ({ setIsLogged, userData, setUserData }) => {
@@ -40,6 +40,13 @@ const PerfilUsuario = ({ setIsLogged, userData, setUserData }) => {
                         <p>{userData?.email}</p>
                     </div>
                     <hr />
+                    <div className="pb-4">
+                        <div className="btn btn-primary w-100">
+                            <Link to={`/edit/${userData?.idUsuario}`} className="registerLink">
+                            <b>EDITAR PERFIL</b>
+                        </Link>
+                        </div>
+                    </div>
                     <div>
                         <div className="btn btn-primary w-100" onClick={() => logout()}>
                             <img className="iconoBotonLogin mr-5" src={iconoLogout} alt="" />

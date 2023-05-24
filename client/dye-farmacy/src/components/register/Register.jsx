@@ -15,6 +15,7 @@ const Register = ({ setIsLogged, setUserData }) => {
         apellidos: "",
         email: "",
         password: "",
+        verifyPaswword: ""
     };
 
     const [inputsData, setinputsData] = useState(initialInputsData);
@@ -29,23 +30,27 @@ const Register = ({ setIsLogged, setUserData }) => {
     const handleOnSubmit = (e) => {
         e.preventDefault();
         async function insertUsuario() {
-            try {
-                const response = await UsuarioServices.registerUser(inputsData);
-                if (response.status !== 200) {
-                    Swal.fire("Error en el registro", `El email ${inputsData.email} ya ha sido registrado previamente`, "error");
-                    return;
+            if (inputsData.password === inputsData.verifyPaswword) {
+                try {
+                    const response = await UsuarioServices.registerUser(inputsData);
+                    if (response.status !== 200) {
+                        Swal.fire("Error en el registro", `El email ${inputsData.email} ya ha sido registrado previamente`, "error");
+                        return;
+                    }
+    
+                    response.json().then((response) => {
+                        setUserData(response);
+                        localStorage.setItem("idUsuario", response.idUsuario);
+                    });
+                    setIsLogged(true);
+                    Swal.fire("Registro realizado correctamente", "Le llegará un email de confirmación", "success");
+                    navigate("/");
+                    localStorage.setItem("idUsuario", "si");
+                } catch (error) {
+                    console.log(error);
                 }
-
-                response.json().then((response) => {
-                    setUserData(response);
-                    localStorage.setItem("idUsuario", response.idUsuario);
-                });
-                setIsLogged(true);
-                Swal.fire("Registro realizado correctamente", "Le llegará un email de confirmación", "success");
-                navigate("/");
-                localStorage.setItem("idUsuario", "si");
-            } catch (error) {
-                console.log(error);
+            }else{
+                Swal.fire("ERROR", "Las contraseñas no coinciden", "error");
             }
         }
         insertUsuario();
@@ -121,6 +126,24 @@ const Register = ({ setIsLogged, setUserData }) => {
                                 className="formularioLoginInput"
                                 onChange={handleOnChange}
                                 value={inputsData.password}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="">
+                        <label htmlFor="verifyPaswword" className="text-secondary">
+                            VERIFICAR LA CONTRASEÑA
+                        </label>
+                        <div>
+                            <input
+                                id="verifyPaswword"
+                                name="verifyPaswword"
+                                type="password"
+                                placeholder=""
+                                required
+                                className="formularioLoginInput"
+                                onChange={handleOnChange}
+                                value={inputsData.verifyPaswword}
                             />
                         </div>
                     </div>
