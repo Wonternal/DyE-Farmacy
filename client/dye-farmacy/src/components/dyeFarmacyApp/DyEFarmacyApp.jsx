@@ -12,16 +12,17 @@ import Producto from "../producto/Producto";
 import Cesta from "../cesta/Cesta";
 import FormularioPago from "../formularioPago/FormularioPago";
 import FormularioPagoTarjeta from "../formularioPagoTarjeta/FormularioPagoTarjeta";
+
 import AdminHome from "../adminHome/AdminHome";
 import HeaderAdmin from "../headerAdmin/HeaderAdmin";
 import AdminClients from "../adminClientes/AdminClients";
-
 import AdminPedidos from "../adminPedidos/AdminPedidos";
 import AdminProductos from "../adminProductos/AdminProductos";
 import AdminProductInfo from "../adminProductInfo/AdminProductInfo";
 import AdminEdit from "../adminEdit/AdminEdit";
 import AdminAnadirProducto from "../adminAnadirProducto/AdminAnadirProducto";
 import AdminPedidosDetalles from "../adminPedidosDetalles/AdminPedidosDetalles";
+import EditUsuario from "../editUsuario/EditUsuario";
 
 const DyEFarmacyApp = () => {
     const [isLogged, setIsLogged] = useState(false);
@@ -91,6 +92,7 @@ const DyEFarmacyApp = () => {
                     <>
                         <Route path="/" element={<Home setIsLogged={setIsLogged} setUserData={setUserData} setIsAdmin={setIsAdmin} />}></Route>
                         <Route path="/login" element={<Login setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
+                        <Route path="/edit/:id" element={<EditUsuario userData={userData} setUserData={setUserData} />}></Route>
                         <Route path="/register" element={<Register setIsLogged={setIsLogged} setUserData={setUserData} />}></Route>
                         <Route path="/perfil" element={<PerfilUsuario setIsLogged={setIsLogged} userData={userData} setUserData={setUserData} />}></Route>
                         <Route path="/producto/:idProducto" element={<Producto isLogged={isLogged} userData={userData} />}></Route>
